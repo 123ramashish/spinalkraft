@@ -10,7 +10,7 @@ import {
 } from 'lucide-react'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 1. Anim  (was @/components/Anim)
+// 1. Anim
 // ─────────────────────────────────────────────────────────────────────────────
 
 type Direction = 'up' | 'down' | 'left' | 'right' | 'scale' | 'fade'
@@ -60,7 +60,7 @@ function Anim({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 2. Three.js Hero Scene (was @/components/HeroScene)
+// 2. Three.js Hero Scene — loaded client-side only
 // ─────────────────────────────────────────────────────────────────────────────
 
 const HeroScene = dynamic(() => import('@/components/HeroScene'), { ssr: false })
@@ -95,7 +95,7 @@ const WHY = [
   'Open 7 days, 7AM – 11:30PM',
 ] as const
 
-const AVATAR_COLORS = ['#C9A84C', '#4CAF50', '#A8872F', '#388E3C', '#E8C96A'] as const
+const AVATAR_COLORS   = ['#C9A84C', '#4CAF50', '#A8872F', '#388E3C', '#E8C96A'] as const
 const AVATAR_INITIALS = ['R', 'A', 'S', 'M', 'P'] as const
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -112,17 +112,30 @@ export default function HomeClient() {
         className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden"
         aria-label="Welcome to SpinalKraft Physiotherapy"
       >
-        {/* Three.js body-parts background */}
-        <HeroScene />
+        {/* ── Three.js background: absolute, fills entire section, behind everything ── */}
+        <div className="absolute inset-0 w-full h-full" aria-hidden="true">
+          <HeroScene />
+        </div>
 
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-ink-950/90 via-ink-900/80 to-ink-900/70 pointer-events-none" aria-hidden="true" />
+        {/* Gradient overlays — sit above canvas, below content */}
         <div
           className="absolute inset-0 pointer-events-none"
           aria-hidden="true"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(76,175,80,0.07), transparent 65%)' }}
+          style={{
+            background:
+              'linear-gradient(to bottom right, rgba(3,10,16,0.88) 0%, rgba(3,10,16,0.75) 50%, rgba(3,10,16,0.68) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(76,175,80,0.07), transparent 65%)',
+          }}
         />
 
+        {/* ── All foreground content ── */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
@@ -134,7 +147,10 @@ export default function HomeClient() {
                 transition={{ duration: 0.6 }}
                 className="section-badge mx-auto lg:mx-0 w-fit mb-5"
               >
-                <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0" aria-hidden="true" />
+                <span
+                  className="w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0"
+                  aria-hidden="true"
+                />
                 Greater Noida's Premier Physiotherapy
               </motion.div>
 
@@ -161,7 +177,8 @@ export default function HomeClient() {
                 transition={{ duration: 0.7, delay: 0.22 }}
                 className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
               >
-                Expert physiotherapy for spinal disorders, sports injuries, neurological conditions and chronic pain — personalised to you.
+                Expert physiotherapy for spinal disorders, sports injuries, neurological
+                conditions and chronic pain — personalised to you.
               </motion.p>
 
               {/* CTA buttons */}
@@ -220,11 +237,16 @@ export default function HomeClient() {
                 >
                   <div
                     className="w-9 h-9 rounded-xl mx-auto mb-2.5 flex items-center justify-center"
-                    style={{ background: 'linear-gradient(135deg,rgba(201,168,76,.18),rgba(76,175,80,.18))' }}
+                    style={{
+                      background:
+                        'linear-gradient(135deg,rgba(201,168,76,.18),rgba(76,175,80,.18))',
+                    }}
                   >
                     <Icon size={16} className="text-brand-gold" aria-hidden="true" />
                   </div>
-                  <p className="font-display font-bold text-base sm:text-lg text-white leading-tight">{value}</p>
+                  <p className="font-display font-bold text-base sm:text-lg text-white leading-tight">
+                    {value}
+                  </p>
                   <p className="text-[11px] font-sans text-gray-500 mt-0.5">{label}</p>
                 </motion.div>
               ))}
@@ -245,7 +267,9 @@ export default function HomeClient() {
 
         {/* Scroll cue */}
         <motion.button
-          onClick={() => document.getElementById('services-preview')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() =>
+            document.getElementById('services-preview')?.scrollIntoView({ behavior: 'smooth' })
+          }
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
@@ -263,7 +287,10 @@ export default function HomeClient() {
         <div
           className="absolute inset-0 pointer-events-none"
           aria-hidden="true"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 80% 50%,rgba(76,175,80,.05),transparent 60%)' }}
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 50% at 80% 50%,rgba(76,175,80,.05),transparent 60%)',
+          }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <Anim className="text-center mb-10 md:mb-14">
@@ -280,7 +307,6 @@ export default function HomeClient() {
             </p>
           </Anim>
 
-          {/* 2-col mobile → 3-col sm → 4-col lg */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-10">
             {SERVICES.map(({ icon: Icon, title, color, href }, i) => {
               const rgb = color === '#C9A84C' ? '201,168,76' : '76,175,80'
@@ -321,7 +347,10 @@ export default function HomeClient() {
         <div
           className="absolute inset-0 pointer-events-none"
           aria-hidden="true"
-          style={{ background: 'radial-gradient(ellipse 60% 50% at 20% 50%,rgba(201,168,76,.04),transparent 60%)' }}
+          style={{
+            background:
+              'radial-gradient(ellipse 60% 50% at 20% 50%,rgba(201,168,76,.04),transparent 60%)',
+          }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -334,18 +363,26 @@ export default function HomeClient() {
                   id="why-heading"
                   className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 sm:mb-6"
                 >
-                  <span className="text-white">Committed to Your</span><br />
+                  <span className="text-white">Committed to Your</span>
+                  <br />
                   <span className="text-shimmer">Complete Recovery</span>
                 </h2>
                 <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6 sm:mb-8">
-                  At SpinalKraft, we go beyond symptoms — we find root causes and provide lasting solutions with expertise and care.
+                  At SpinalKraft, we go beyond symptoms — we find root causes and provide
+                  lasting solutions with expertise and care.
                 </p>
                 <ul className="space-y-2.5 sm:space-y-3 mb-8 sm:mb-10" role="list">
                   {WHY.map((item, i) => (
                     <Anim key={item} direction="left" delay={i * 0.08}>
                       <li className="flex items-center gap-3">
-                        <CheckCircle2 size={16} className="text-brand-green flex-shrink-0" aria-hidden="true" />
-                        <span className="font-sans text-gray-300 text-sm sm:text-base">{item}</span>
+                        <CheckCircle2
+                          size={16}
+                          className="text-brand-green flex-shrink-0"
+                          aria-hidden="true"
+                        />
+                        <span className="font-sans text-gray-300 text-sm sm:text-base">
+                          {item}
+                        </span>
                       </li>
                     </Anim>
                   ))}
@@ -365,7 +402,6 @@ export default function HomeClient() {
                     aria-hidden="true"
                     style={{ background: 'linear-gradient(135deg,#C9A84C,#4CAF50)' }}
                   />
-                  {/* Animated vertebrae bars */}
                   <div className="relative w-20 sm:w-24 mx-auto mb-5" aria-hidden="true">
                     {Array.from({ length: 14 }).map((_, i) => (
                       <motion.div
@@ -386,11 +422,12 @@ export default function HomeClient() {
                       />
                     ))}
                   </div>
-                  <p className="font-display text-lg sm:text-xl font-semibold text-shimmer mb-1">Spinal Wellness</p>
+                  <p className="font-display text-lg sm:text-xl font-semibold text-shimmer mb-1">
+                    Spinal Wellness
+                  </p>
                   <p className="font-sans text-sm text-gray-500">Precision care for your spine</p>
                 </div>
 
-                {/* Floating stat badges */}
                 <motion.div
                   animate={{ y: [-4, 5, -4] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
@@ -436,7 +473,8 @@ export default function HomeClient() {
                   Ready to Live <span className="text-shimmer">Pain-Free?</span>
                 </h2>
                 <p className="text-gray-400 font-sans text-sm sm:text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
-                  Take the first step today. Our expert physiotherapists are ready to help you recover and reclaim your life.
+                  Take the first step today. Our expert physiotherapists are ready to help you
+                  recover and reclaim your life.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
@@ -451,7 +489,8 @@ export default function HomeClient() {
                   </Link>
                 </div>
                 <p className="mt-4 text-xs sm:text-sm text-gray-500 font-sans">
-                  Consultation: <span className="text-brand-gold font-semibold">₹500</span> · Open 7 days a week
+                  Consultation:{' '}
+                  <span className="text-brand-gold font-semibold">₹500</span> · Open 7 days a week
                 </p>
               </div>
             </div>
