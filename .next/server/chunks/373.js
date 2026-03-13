@@ -1,0 +1,1 @@
+"use strict";exports.id=373,exports.ids=[373],exports.modules={5373:(e,t,a)=>{a.r(t),a.d(t,{$$typeof:()=>l,__esModule:()=>o,default:()=>d});var r=a(8570);let s=(0,r.createProxy)(String.raw`/Users/a/Downloads/spinalkraft/app/HomeClient.tsx`),{__esModule:o,$$typeof:l}=s;s.default;let d=(0,r.createProxy)(String.raw`/Users/a/Downloads/spinalkraft/app/HomeClient.tsx#default`)}};
