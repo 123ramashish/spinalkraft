@@ -423,7 +423,7 @@ export default function HeroScene() {
     const animate = () => {
       raf = requestAnimationFrame(animate)
       const t = clock.getElapsedTime()
-      const dt = clock.getDelta ? 0.016 : 0.016
+      // const dt = clock.getDelta ? 0.016 : 0.016
 
       /* Auto-rotate */
       if (s.autoRotate) {
