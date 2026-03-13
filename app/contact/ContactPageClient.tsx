@@ -322,7 +322,7 @@ export default function ContactPageClient() {
 
             {/* 2-col mobile → 4-col md */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-10 md:mb-16">
-              {INFO_CARDS.map(({ icon: Icon, title, primary, secondary, color, link }, i) => {
+              {INFO_CARDS.map(({ icon: Icon, title, primary, secondary, color, link }:any, i) => {
                 const rgb = color === '#C9A84C' ? '201,168,76' : '76,175,80'
                 return (
                   <Anim key={title} direction="up" delay={i * 0.1}>
