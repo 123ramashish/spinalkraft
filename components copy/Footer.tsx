@@ -6,21 +6,21 @@ import logo from './images/logo.png'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const QUICK_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Conditions', href: '/conditions' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Home',       href: '/'          },
+  { label: 'About Us',   href: '/about'     },
+  { label: 'Services',   href: '/services'  },
+  { label: 'Conditions', href: '/conditions'},
+  { label: 'Contact',    href: '/contact'   },
 ]
 
 const SERVICES = [
-  { label: 'Spinal Physiotherapy', href: '/services#spinal' },
-  { label: 'Sports Injury Rehab', href: '/services#sports' },
-  { label: 'Neurological Therapy', href: '/services#neuro' },
-  { label: 'Orthopedic Therapy', href: '/services#ortho' },
-  { label: 'Pain Management', href: '/services#pain' },
-  { label: 'Post-Surgery Rehab', href: '/services#postsurgery' },
-  { label: 'Home Physiotherapy', href: '/services#home' },
+  { label: 'Spinal Physiotherapy', href: '/services#spinal'      },
+  { label: 'Sports Injury Rehab',  href: '/services#sports'      },
+  { label: 'Neurological Therapy', href: '/services#neuro'       },
+  { label: 'Orthopedic Therapy',   href: '/services#ortho'       },
+  { label: 'Pain Management',      href: '/services#pain'        },
+  { label: 'Post-Surgery Rehab',   href: '/services#postsurgery' },
+  { label: 'Home Physiotherapy',   href: '/services#home'        },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -45,21 +45,11 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link
               href="/"
-              className="flex items-center gap-2.5 mb-4 group "
+              className="flex items-center gap-2.5 mb-4 group w-fit min-h-[44px]"
               aria-label="SpinalKraft Home"
             >
-              <div className="relative w-9 h-9 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
-                <div
-                  className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/15 transition-all duration-300 z-10"
-                  aria-hidden="true"
-                />
-                <Image
-                  src={logo}
-                  alt="SpinalKraft logo"
-                  fill
-                  sizes="36px"
-                  className="object-cover rounded-full"
-                />
+              <div className="w-9 h-9 rounded-full border border-brand-gold/40 bg-ink-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                <Image src={logo} alt="SpinalKraft logo" width={30} height={30} className="rounded-full" />
               </div>
               <div>
                 <p className="font-display font-bold text-base leading-tight">

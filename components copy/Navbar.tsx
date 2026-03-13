@@ -1,12 +1,14 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone } from 'lucide-react'
 import logo from './images/logo.png'
+
+// ─── Nav links ────────────────────────────────────────────────────────────────
 
 const NAV_LINKS = [
   { label: 'Home',       href: '/'          },
@@ -16,46 +18,25 @@ const NAV_LINKS = [
   { label: 'Contact',    href: '/contact'   },
 ]
 
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function Navbar() {
   const [scrolled,   setScrolled]   = useState(false)
-  const [visible,    setVisible]    = useState(true)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const pathname   = usePathname()
-  const lastY      = useRef(0)
-  const ticking    = useRef(false)
+  const pathname = usePathname()
 
-  /* ── Hide on scroll down, show on scroll up ── */
+  // Scroll detection
   useEffect(() => {
-    const onScroll = () => {
-      if (ticking.current) return
-      ticking.current = true
-      requestAnimationFrame(() => {
-        const y = window.scrollY
-        setScrolled(y > 50)
-        if (y < 60) {
-          // Always show near top
-          setVisible(true)
-        } else if (y > lastY.current + 6) {
-          // Scrolling down — hide
-          setVisible(false)
-          setMobileOpen(false)
-        } else if (y < lastY.current - 6) {
-          // Scrolling up — show
-          setVisible(true)
-        }
-        lastY.current  = y
-        ticking.current = false
-      })
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', fn, { passive: true })
+    fn() // run once on mount
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  /* ── Close drawer on route change ── */
+  // Close drawer on route change
   useEffect(() => { setMobileOpen(false) }, [pathname])
 
-  /* ── Lock body scroll when drawer open ── */
+  // Lock body scroll when drawer is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -63,29 +44,13 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Focus ring removal (global, scoped to navbar) ── */}
-      <style>{`
-        header *:focus          { outline: none !important; box-shadow: none !important; }
-        header *:focus-visible  { outline: none !important; box-shadow: none !important; }
-        aside  *:focus          { outline: none !important; box-shadow: none !important; }
-        aside  *:focus-visible  { outline: none !important; box-shadow: none !important; }
-      `}</style>
-
       {/* ── Main header ── */}
       <motion.header
         initial={{ y: -80, opacity: 0 }}
-        animate={{
-          y:       visible ? 0 : -90,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          y:       { duration: 0.38, ease: [0.22, 1, 0.36, 1] },
-          opacity: { duration: 0.28 },
-        }}
-        className={`fixed top-0 inset-x-0 z-50 transition-[background,padding,box-shadow] duration-500 ${
-          scrolled
-            ? 'glass shadow-[0_2px_40px_rgba(0,0,0,0.6)] py-2'
-            : 'bg-transparent py-3 md:py-5'
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+          scrolled ? 'glass shadow-[0_2px_40px_rgba(0,0,0,0.6)] py-2' : 'bg-transparent py-3 md:py-5'
         }`}
         role="banner"
       >
@@ -97,18 +62,12 @@ export default function Navbar() {
             className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 min-h-[44px]"
             aria-label="SpinalKraft Physiotherapy — Home"
           >
-            <div className="relative w-9 h-9 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
+            <div className="relative w-9 h-9 rounded-full border border-brand-gold/40 bg-ink-800 flex items-center justify-center flex-shrink-0 overflow-hidden">
               <div
-                className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/15 transition-all duration-300 z-10"
+                className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/15 transition-all duration-300"
                 aria-hidden="true"
               />
-              <Image
-                src={logo}
-                alt="SpinalKraft logo"
-                fill
-                sizes="36px"
-                className="object-cover rounded-full"
-              />
+              <Image src={logo} alt="SpinalKraft logo" width={30} height={30} className="rounded-full relative z-10" />
             </div>
             <div>
               <p className="font-display font-bold text-[15px] md:text-[17px] leading-tight">
@@ -147,6 +106,23 @@ export default function Navbar() {
 
           {/* ── CTAs + mobile toggle ── */}
           <div className="flex items-center gap-2">
+            {/* Desktop — full number */}
+            {/* <a
+              href="tel:+918128370332"
+              className="hidden lg:flex btn-brand py-2.5 px-5 text-sm gap-1.5 min-h-[44px]"
+              aria-label="Call SpinalKraft"
+            >
+              <Phone size={13} aria-hidden="true" /> +91 81283 70332
+            </a> */}
+            {/* Tablet — short label */}
+            {/* <a
+              href="tel:+918128370332"
+              className="hidden md:flex lg:hidden btn-brand py-2 px-4 text-sm gap-1.5 min-h-[44px]"
+              aria-label="Call SpinalKraft"
+            >
+              <Phone size={13} aria-hidden="true" /> Call
+            </a> */}
+            {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen(v => !v)}
               className="md:hidden p-2.5 rounded-xl text-gray-300 hover:text-brand-gold hover:bg-white/5 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
@@ -195,8 +171,8 @@ export default function Navbar() {
                   aria-label="SpinalKraft Home"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <div className="relative w-8 h-8 rounded-full border border-brand-gold/40 overflow-hidden flex-shrink-0">
-                    <Image src={logo} alt="SpinalKraft logo" fill sizes="32px" className="object-cover rounded-full" />
+                  <div className="w-8 h-8 rounded-full border border-brand-gold/40 bg-ink-900 flex items-center justify-center overflow-hidden">
+                    <Image src={logo} alt="SpinalKraft logo" width={28} height={28} className="rounded-full" />
                   </div>
                   <p className="font-display font-bold text-[15px]">
                     <span className="text-brand-green">Spinal</span><span className="text-brand-gold">Kraft</span>
