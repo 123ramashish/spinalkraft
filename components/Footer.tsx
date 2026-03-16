@@ -127,7 +127,7 @@ export default function Footer() {
             <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">Contact</h3>
             <address className="not-italic space-y-3.5">
               <a
-                href="tel:+918128370332"
+                href="tel:+918766304045"
                 className="flex items-start gap-3 group min-h-[40px]"
                 aria-label="Call SpinalKraft"
               >
@@ -164,7 +164,7 @@ export default function Footer() {
             </address>
 
             <a
-              href="tel:+918128370332"
+              href="tel:+918766304045"
               className="mt-5 btn-brand text-sm w-full justify-center min-h-[48px]"
               aria-label="Book appointment at SpinalKraft — ₹500"
             >
