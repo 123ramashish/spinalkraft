@@ -152,7 +152,7 @@ export default function Footer() {
               </div>
 
               <a
-                href="spinalkraftphysio@gmail.com"
+                href="mailto:spinalkraftphysio@gmail.com"
                 className="flex items-start gap-3 group min-h-[40px]"
                 aria-label="Email SpinalKraft"
               >
