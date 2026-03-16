@@ -97,7 +97,7 @@ export default function Navbar() {
             className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 min-h-[44px]"
             aria-label="SpinalKraft Physiotherapy — Home"
           >
-            <div className="relative w-9 h-9 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
+            <div className="relative w-16 h-16 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
               <div
                 className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/15 transition-all duration-300 z-10"
                 aria-hidden="true"
@@ -250,7 +250,7 @@ export default function Navbar() {
                   className="btn-brand w-full text-sm min-h-[48px] justify-center"
                   aria-label="Call SpinalKraft: +91 81283 70332"
                 >
-                  <Phone size={15} aria-hidden="true" /> +91 81283 70332
+                  <Phone size={15} aria-hidden="true" /> +91-8766304045
                 </a>
                 <p className="text-center text-xs text-gray-600 font-sans">Open 7AM – 11:30PM · ₹500</p>
               </div>

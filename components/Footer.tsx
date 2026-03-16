@@ -48,7 +48,7 @@ export default function Footer() {
               className="flex items-center gap-2.5 mb-4 group "
               aria-label="SpinalKraft Home"
             >
-              <div className="relative w-9 h-9 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
+              <div className="relative w-16 h-16 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
                 <div
                   className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/15 transition-all duration-300 z-10"
                   aria-hidden="true"
@@ -57,7 +57,7 @@ export default function Footer() {
                   src={logo}
                   alt="SpinalKraft logo"
                   fill
-                  sizes="36px"
+                  sizes="54px"
                   className="object-cover rounded-full"
                 />
               </div>
@@ -75,11 +75,11 @@ export default function Footer() {
             <p className="text-brand-gold/60 font-display italic text-sm mb-4">— Your Recovery, Our Priority —</p>
 
             {/* Star rating */}
-            <div className="flex items-center gap-1" aria-label="Rated 4.9 out of 5 from 180 reviews">
+            <div className="flex items-center gap-1" aria-label="Rated 5.0 out of 5 from 180 reviews">
               {[1, 2, 3, 4, 5].map(i => (
                 <Star key={i} size={13} className="fill-brand-gold text-brand-gold" aria-hidden="true" />
               ))}
-              <span className="text-xs text-gray-400 font-sans ml-1.5">4.9 (180+ reviews)</span>
+              <span className="text-xs text-gray-400 font-sans ml-1.5">5.0 (2500+ reviews)</span>
             </div>
           </div>
 
@@ -133,21 +133,21 @@ export default function Footer() {
               >
                 <Phone size={14} className="text-brand-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <span className="text-sm font-sans text-gray-400 group-hover:text-white transition-colors">
-                  +91 81283 70332
+                +91-8766304045
                 </span>
               </a>
 
               <div className="flex items-start gap-3">
                 <MapPin size={14} className="text-brand-green mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <span className="text-sm font-sans text-gray-400">
-                  Sector 4, near Char Murti,<br />Greater Noida, UP
+                  DC-28 Medicenter 3rd Floor, Galaxy Blue Sapphire Plaza, Greater Noida West Extension, Haibatpur, Greater Noida W Rd, Extension, Sector 4, Uttar Pradesh 201016
                 </span>
               </div>
 
               <div className="flex items-start gap-3">
                 <Clock size={14} className="text-brand-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <span className="text-sm font-sans text-gray-400">
-                  Mon–Sun · 7:00 AM – 11:30 PM
+                  Mon–Sun · 24*7 Hrs/Day
                 </span>
               </div>
 
@@ -158,7 +158,7 @@ export default function Footer() {
               >
                 <Mail size={14} className="text-brand-green mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <span className="text-sm font-sans text-gray-400 group-hover:text-white transition-colors">
-                  info@spinalkraft.in
+                 spinalkraftphysio@gmail.com
                 </span>
               </a>
             </address>

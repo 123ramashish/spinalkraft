@@ -214,19 +214,19 @@ const TIME_SLOTS = [
 
 const INFO_CARDS = [
   {
-    icon: Phone, title: 'Call Us',    primary: '+91 81283 70332',        secondary: 'Consultation: ₹500/session',
-    color: '#C9A84C', link: 'tel:+918128370332',
+    icon: Phone, title: 'Call Us',    primary: '+91-8766304045',        secondary: 'Consultation: ₹500/session',
+    color: '#C9A84C', link: 'tel:+91-8766304045',
   },
   {
-    icon: MapPin, title: 'Visit Us',  primary: 'Greater Noida Sector 4', secondary: 'near Char Murti / Ek Murti',
-    color: '#4CAF50', link: 'https://maps.google.com/?q=Greater+Noida+Sector+4',
+    icon: MapPin, title: 'Visit Us',  primary: 'DC-28 Medicenter 3rd Floor, Galaxy Blue Sapphire Plaza, Greater Noida West Extension, Sector 4, Uttar Pradesh 201016', secondary: 'Near Gaur City / Char Murti / Ek Murti',
+    color: '#4CAF50', link: 'https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D',
   },
   {
-    icon: Clock, title: 'Open Hours', primary: 'Monday – Sunday',        secondary: '7:00 AM – 11:30 PM',
+    icon: Clock, title: 'Open Hours', primary: 'Monday – Sunday',        secondary: '24*7',
     color: '#C9A84C',
   },
   {
-    icon: Star,  title: 'Rating',     primary: '4.9★ Rating',            secondary: '180+ happy patients',
+    icon: Star,  title: 'Rating',     primary: '5.0★ Rating',            secondary: '2500+ happy patients',
     color: '#4CAF50',
   },
 ] as const
@@ -397,8 +397,8 @@ export default function ContactPageClient() {
                           </h3>
                           <p className="text-gray-400 font-sans text-sm sm:text-base">
                             We'll call you shortly. For urgent care:{' '}
-                            <a href="tel:+918128370332" className="text-brand-gold font-semibold">
-                              +91 81283 70332
+                            <a href="tel:+918766304045" className="text-brand-gold font-semibold">
+                              +91-08766304045
                             </a>
                           </p>
                         </motion.div>
@@ -532,7 +532,7 @@ export default function ContactPageClient() {
                   >
                     <iframe
                       title="SpinalKraft Physiotherapy Clinic location — Greater Noida Sector 4"
-                      src="https://maps.google.com/maps?q=Sector+4,+Greater+Noida,+Uttar+Pradesh&output=embed&z=14"
+                      src="https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
                       className="w-full h-full"
                       style={{ border: 0, opacity: 0.75 }}
                       allowFullScreen
@@ -592,13 +592,13 @@ export default function ContactPageClient() {
                       <p className="font-sans text-xs sm:text-sm text-gray-400">
                         Call{' '}
                         <a
-                          href="tel:+918128370332"
+                          href="tel:+91-8766304045"
                           className="text-brand-gold font-semibold hover:underline"
                           aria-label="Call SpinalKraft for urgent care"
                         >
-                          +91 81283 70332
+                          +91-8766304045
                         </a>
-                        {' '}— Open 7 days, 7 AM–11:30 PM.
+                        {' '}— Open 24*7.
                       </p>
                     </div>
                   </div>
@@ -617,7 +617,7 @@ export default function ContactPageClient() {
               '@type': 'PhysicalTherapy',
               name: 'SpinalKraft Physiotherapy Clinic',
               url: 'https://spinalkraft.in',
-              telephone: '+918128370332',
+              telephone: '+91-8766304045',
               priceRange: '₹500',
               address: {
                 '@type': 'PostalAddress',
@@ -626,8 +626,8 @@ export default function ContactPageClient() {
                 addressCountry: 'IN',
                 streetAddress: 'Sector 4',
               },
-              openingHours: 'Mo-Su 07:00-23:30',
-              aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '180' },
+              openingHours: 'Mo-Su 24*7',
+              aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '200+' },
             }),
           }}
         />

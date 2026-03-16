@@ -531,7 +531,7 @@ export default function ConditionsClient() {
                   <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
                     Don't See Your Condition?
                   </h2>
-                  <p className="text-gray-400 font-sans text-sm sm:text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
+                  <p className="text-gray-400 font-sans text-sm sm:text-base  mb-6 sm:mb-8 max-w-xl mx-auto">
                     We treat many conditions. Contact us — our physiotherapists will assess and create a personalised plan.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -540,7 +540,7 @@ export default function ConditionsClient() {
                       className="btn-brand shadow-gold w-full sm:w-auto"
                       aria-label="Call SpinalKraft"
                     >
-                      <Phone size={15} aria-hidden="true" /> +91 81283 70332
+                      <Phone size={15} aria-hidden="true" /> +91-8766304045
                     </a>
                     <Link href="/contact" className="btn-outline w-full sm:w-auto">
                       Book Online <ArrowRight size={14} aria-hidden="true" />

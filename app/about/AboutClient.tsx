@@ -186,12 +186,12 @@ const VALUES = [
 ]
 
 const MILESTONES = [
-  { value: '180+',   label: 'Patients Treated',   color: '#C9A84C' },
-  { value: '4.9★',   label: 'Avg. Rating',         color: '#4CAF50' },
+  { value: '2500+',   label: 'Patients Treated',   color: '#C9A84C' },
+  { value: '5.0★',   label: 'Avg. Rating',         color: '#4CAF50' },
   { value: '10+',    label: 'Conditions Managed',  color: '#C9A84C' },
-  { value: '7 Days', label: 'Weekly Availability', color: '#4CAF50' },
+  { value: '24*7', label: 'Weekly Availability', color: '#4CAF50' },
   { value: '₹500',   label: 'Consultation Fee',    color: '#C9A84C' },
-  { value: '16h+',   label: 'Daily Open Hours',    color: '#4CAF50' },
+  { value: '24h',   label: 'Daily Open Hours',    color: '#4CAF50' },
 ]
 
 const TRAITS = [

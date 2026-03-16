@@ -70,20 +70,21 @@ const HeroScene = dynamic(() => import('@/components/HeroScene'), { ssr: false }
 // ─────────────────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { icon: Star,   value: '4.9★',    label: '180+ Reviews'  },
-  { icon: Clock,  value: '16h/day', label: 'Open Daily'    },
-  { icon: MapPin, value: 'Sector 4',label: 'Greater Noida' },
-  { icon: Phone,  value: '₹500',    label: 'Consultation'  },
+  { icon: Star,   value: '5.0★',    label: '200+ Reviews' ,url:"" },
+  { icon: Clock,  value: '24h/day', label: 'Open Daily' ,url:""   },
+  { icon: MapPin, value: 'DC-28 Medicenter 3rd Floor, Galaxy Blue Sapphire Plaza, Greater Noida West Extension, Sector 4, Uttar Pradesh 201016',label: 'Greater Noida',url:'https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D' },
+  { icon: Phone,  value: '₹500',    label: 'Consultation' ,url:"" },
 ] as const
 
 const SERVICES = [
-  { icon: Bone,       title: 'Spinal Therapy',  color: '#C9A84C', href: '/services#spinal'      },
-  { icon: Activity,   title: 'Sports Injury',   color: '#4CAF50', href: '/services#sports'      },
-  { icon: Brain,      title: 'Neurological',    color: '#C9A84C', href: '/services#neuro'       },
-  { icon: Dumbbell,   title: 'Orthopedic',      color: '#4CAF50', href: '/services#ortho'       },
-  { icon: Zap,        title: 'Pain Management', color: '#C9A84C', href: '/services#pain'        },
-  { icon: HeartPulse, title: 'Post-Surgery',    color: '#4CAF50', href: '/services#postsurgery' },
-  { icon: Home,       title: 'Home Physio',     color: '#C9A84C', href: '/services#home'        },
+  { icon: Bone,       title: 'Orthopedics Physiotherapy',  color: '#C9A84C', href: '/services#spinal'      },
+  { icon: Activity,   title: 'Sports Injury Physiotherapy',   color: '#4CAF50', href: '/services#sports'      },
+  { icon: Brain,      title: 'Neurological Physiotherapy',    color: '#C9A84C', href: '/services#neuro'       },
+  { icon: Dumbbell,   title: 'Cardiopulmonay Physiotherapy',      color: '#4CAF50', href: '/services#ortho'       },
+  { icon: Zap,        title: 'Geriatric & Pediactric Physiotherapy', color: '#C9A84C', href: '/services#pain'        },
+  { icon: HeartPulse, title: 'Womens Health Physiotherapy',    color: '#4CAF50', href: '/services#postsurgery' },
+  { icon: Home,       title: 'Workplace & Ergonomic Physiotherapy',     color: '#C9A84C', href: '/services#home'        },
+  { icon: Home,       title: 'Oncology Physiotherapy',     color: '#C9A84C', href: '/services#home'        },
 ] as const
 
 const WHY = [
@@ -92,7 +93,7 @@ const WHY = [
   'Modern therapy equipment',
   'Fast pain relief techniques',
   'Affordable ₹500 consultation',
-  'Open 7 days, 7AM – 11:30PM',
+  'Open 7 days, 24 Hrs/day',
 ] as const
 
 const AVATAR_COLORS   = ['#C9A84C', '#4CAF50', '#A8872F', '#388E3C', '#E8C96A'] as const
@@ -219,14 +220,14 @@ export default function HomeClient() {
                   ))}
                 </div>
                 <p className="text-xs sm:text-sm font-sans text-gray-400">
-                  <span className="text-brand-gold font-semibold">180+</span> patients recovered
+                  <span className="text-brand-gold font-semibold">2500+</span> patients recovered
                 </p>
               </motion.div>
             </div>
 
             {/* Stats grid — 2×2 */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-xs sm:max-w-sm mx-auto lg:max-w-none w-full">
-              {STATS.map(({ icon: Icon, value, label }, i) => (
+              {STATS.map(({ icon: Icon, value, label,url }, i) => (
                 <motion.div
                   key={label}
                   initial={{ opacity: 0, scale: 0.85, y: 24 }}
@@ -244,10 +245,10 @@ export default function HomeClient() {
                   >
                     <Icon size={16} className="text-brand-gold" aria-hidden="true" />
                   </div>
-                  <p className="font-display font-bold text-base sm:text-lg text-white leading-tight">
+                  <a href={url} target="_blank"  className="font-display font-bold text-base sm:text-lg text-white leading-tight">
                     {value}
-                  </p>
-                  <p className="text-[11px] font-sans text-gray-500 mt-0.5">{label}</p>
+                  </a>
+                  <p  className="text-[11px] font-sans text-gray-500 mt-0.5">{label}</p>
                 </motion.div>
               ))}
             </div>
@@ -434,7 +435,7 @@ export default function HomeClient() {
                   className="absolute -top-4 -right-2 sm:-right-5 stat-card"
                   aria-hidden="true"
                 >
-                  <p className="font-display font-bold text-xl sm:text-2xl text-brand-gold">4.9★</p>
+                  <p className="font-display font-bold text-xl sm:text-2xl text-brand-gold">5.0★</p>
                   <p className="text-[10px] sm:text-xs text-gray-400 font-sans">Rating</p>
                 </motion.div>
 
@@ -444,7 +445,7 @@ export default function HomeClient() {
                   className="absolute -bottom-4 -left-2 sm:-left-5 stat-card"
                   aria-hidden="true"
                 >
-                  <p className="font-display font-bold text-xl sm:text-2xl text-brand-green">180+</p>
+                  <p className="font-display font-bold text-xl sm:text-2xl text-brand-green">2500+</p>
                   <p className="text-[10px] sm:text-xs text-gray-400 font-sans">Patients</p>
                 </motion.div>
               </div>
@@ -472,7 +473,7 @@ export default function HomeClient() {
                 >
                   Ready to Live <span className="text-shimmer">Pain-Free?</span>
                 </h2>
-                <p className="text-gray-400 font-sans text-sm sm:text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
+                <p className="text-gray-400 font-sans text-sm sm:text-base  mb-6 sm:mb-8 max-w-xl mx-auto">
                   Take the first step today. Our expert physiotherapists are ready to help you
                   recover and reclaim your life.
                 </p>
@@ -482,7 +483,7 @@ export default function HomeClient() {
                     className="btn-brand shadow-gold w-full sm:w-auto min-h-[48px]"
                     aria-label="Call SpinalKraft: +91 81283 70332"
                   >
-                    <Phone size={15} aria-hidden="true" /> Call: +91 81283 70332
+                    <Phone size={15} aria-hidden="true" /> Call: +91-8766304045
                   </a>
                   <Link href="/contact" className="btn-outline w-full sm:w-auto min-h-[48px]">
                     Book Online
