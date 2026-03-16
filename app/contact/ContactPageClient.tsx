@@ -23,12 +23,12 @@ interface AnimProps extends Omit<MotionProps, 'variants'> {
 }
 
 const variantMap: Record<Direction, Variants> = {
-  up:    { hidden: { opacity: 0, y: 40       }, visible: { opacity: 1, y: 0    } },
-  down:  { hidden: { opacity: 0, y: -40      }, visible: { opacity: 1, y: 0    } },
-  left:  { hidden: { opacity: 0, x: 60       }, visible: { opacity: 1, x: 0    } },
-  right: { hidden: { opacity: 0, x: -60      }, visible: { opacity: 1, x: 0    } },
+  up: { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } },
+  down: { hidden: { opacity: 0, y: -40 }, visible: { opacity: 1, y: 0 } },
+  left: { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } },
+  right: { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } },
   scale: { hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1 } },
-  fade:  { hidden: { opacity: 0              }, visible: { opacity: 1           } },
+  fade: { hidden: { opacity: 0 }, visible: { opacity: 1 } },
 }
 
 function Anim({
@@ -209,24 +209,24 @@ const CONDITION_LIST = [
 
 const TIME_SLOTS = [
   '7:00 AM – 10:00 AM', '10:00 AM – 1:00 PM',
-  '1:00 PM – 4:00 PM',  '4:00 PM – 7:00 PM', '7:00 PM – 11:30 PM',
+  '1:00 PM – 4:00 PM', '4:00 PM – 7:00 PM', '7:00 PM – 11:30 PM',
 ]
 
 const INFO_CARDS = [
   {
-    icon: Phone, title: 'Call Us',    primary: '+91-8766304045',        secondary: 'Consultation: ₹500/session',
+    icon: Phone, title: 'Call Us', primary: '+91-8766304045', secondary: 'Consultation: ₹500/session',
     color: '#C9A84C', link: 'tel:+91-8766304045',
   },
   {
-    icon: MapPin, title: 'Visit Us',  primary: 'DC-28 Medicenter 3rd Floor, Galaxy Blue Sapphire Plaza, Greater Noida West Extension, Sector 4, Uttar Pradesh 201016', secondary: 'Near Gaur City / Char Murti / Ek Murti',
+    icon: MapPin, title: 'Visit Us', primary: 'DC-28 Medicenter 3rd Floor, Galaxy Blue Sapphire Plaza, Greater Noida West Extension, Sector 4, Uttar Pradesh 201016', secondary: 'Near Gaur City / Char Murti / Ek Murti',
     color: '#4CAF50', link: 'https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D',
   },
   {
-    icon: Clock, title: 'Open Hours', primary: 'Monday – Sunday',        secondary: '24*7',
+    icon: Clock, title: 'Open Hours', primary: 'Monday – Sunday', secondary: '24*7',
     color: '#C9A84C',
   },
   {
-    icon: Star,  title: 'Rating',     primary: '5.0★ Rating',            secondary: '2500+ happy patients',
+    icon: Star, title: 'Rating', primary: '5.0★ Rating', secondary: '2500+ happy patients',
     color: '#4CAF50',
   },
 ] as const
@@ -259,25 +259,24 @@ function Label({ children, required }: { children: ReactNode; required?: boolean
 
 const inputCls = (hasError: boolean) =>
   `w-full bg-white/4 border rounded-xl px-4 py-3 font-sans text-sm text-white placeholder-gray-600 
-   focus:outline-none transition-all duration-300 min-h-[44px] appearance-none ${
-     hasError
-       ? 'border-red-400/50 focus:border-red-400'
-       : 'border-white/8 focus:border-brand-gold/50 focus:bg-white/6'
-   }`
+   focus:outline-none transition-all duration-300 min-h-[44px] appearance-none ${hasError
+    ? 'border-red-400/50 focus:border-red-400'
+    : 'border-white/8 focus:border-brand-gold/50 focus:bg-white/6'
+  }`
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 7. Default export — full Contact page
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function ContactPageClient() {
-  const [form, setForm]     = useState<FormData>(INITIAL)
+  const [form, setForm] = useState<FormData>(INITIAL)
   const [status, setStatus] = useState<Status>('idle')
   const [errors, setErrors] = useState<Partial<FormData>>({})
 
   /* ── Validation ── */
   const validate = (): boolean => {
     const e: Partial<FormData> = {}
-    if (!form.name.trim())              e.name  = 'Name is required'
+    if (!form.name.trim()) e.name = 'Name is required'
     if (!/^\+?[\d\s-]{10,}$/.test(form.phone)) e.phone = 'Enter a valid phone number'
     if (form.email && !/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email'
     setErrors(e)
@@ -322,7 +321,7 @@ export default function ContactPageClient() {
 
             {/* 2-col mobile → 4-col md */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-10 md:mb-16">
-              {INFO_CARDS.map(({ icon: Icon, title, primary, secondary, color, link }:any, i) => {
+              {INFO_CARDS.map(({ icon: Icon, title, primary, secondary, color, link }: any, i) => {
                 const rgb = color === '#C9A84C' ? '201,168,76' : '76,175,80'
                 return (
                   <Anim key={title} direction="up" delay={i * 0.1}>
@@ -532,7 +531,7 @@ export default function ContactPageClient() {
                   >
                     <iframe
                       title="SpinalKraft Physiotherapy Clinic location — Greater Noida Sector 4"
-                      src="https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
+                      src="https://www.google.com/maps?q=SpinalKraft+Physiotherapy+Clinic+Greater+Noida&output=embed"
                       className="w-full h-full"
                       style={{ border: 0, opacity: 0.75 }}
                       allowFullScreen
@@ -559,9 +558,9 @@ export default function ContactPageClient() {
                     <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-4">Directions</h3>
                     <div className="space-y-3 sm:space-y-4">
                       {[
-                        { label: 'From Delhi',  desc: 'DND Flyway → Greater Noida Expressway → Sector 4 (≈ 40 min)' },
-                        { label: 'From Noida',  desc: 'Noida–Greater Noida Expressway → Sector 4 exit (≈ 20 min)' },
-                        { label: 'Landmark',    desc: 'Near Char Murti Chowk / Ek Murti / Iteda Gol Chakkar' },
+                        { label: 'From Delhi', desc: 'DND Flyway → Greater Noida Expressway → Sector 4 (≈ 40 min)' },
+                        { label: 'From Noida', desc: 'Noida–Greater Noida Expressway → Sector 4 exit (≈ 20 min)' },
+                        { label: 'Landmark', desc: 'Near Char Murti Chowk / Ek Murti / Iteda Gol Chakkar' },
                       ].map(({ label, desc }) => (
                         <div key={label}>
                           <p className="font-sans font-bold text-[10px] sm:text-xs text-brand-green uppercase tracking-wider mb-1">
