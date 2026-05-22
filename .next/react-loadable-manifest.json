@@ -1,37 +1,32 @@
 {
   "app/HomeClient.tsx -> @/components/HeroScene": {
-    "id": 2245,
+    "id": "app/HomeClient.tsx -> @/components/HeroScene",
     "files": [
-      "static/chunks/b536a0f1.77b55a9edb79e111.js",
-      "static/chunks/245.edebaea7812d2894.js"
+      "static/chunks/_app-pages-browser_components_HeroScene_tsx.js"
     ]
   },
   "app/about/AboutClient.tsx -> @/components/SpineScene": {
-    "id": 6436,
+    "id": "app/about/AboutClient.tsx -> @/components/SpineScene",
     "files": [
-      "static/chunks/b536a0f1.77b55a9edb79e111.js",
-      "static/chunks/436.6c2c6ba59adfbf76.js"
+      "static/chunks/_app-pages-browser_components_SpineScene_tsx.js"
     ]
   },
   "app/conditions/ConditionClient.tsx -> @/components/ConditionsScene": {
-    "id": 1581,
+    "id": "app/conditions/ConditionClient.tsx -> @/components/ConditionsScene",
     "files": [
-      "static/chunks/b536a0f1.77b55a9edb79e111.js",
-      "static/chunks/581.498b48bfedf9a341.js"
+      "static/chunks/_app-pages-browser_components_ConditionsScene_tsx.js"
     ]
   },
   "app/contact/ContactPageClient.tsx -> @/components/ContactScene": {
-    "id": 7323,
+    "id": "app/contact/ContactPageClient.tsx -> @/components/ContactScene",
     "files": [
-      "static/chunks/b536a0f1.77b55a9edb79e111.js",
-      "static/chunks/323.e44198fe2ab33571.js"
+      "static/chunks/_app-pages-browser_components_ContactScene_tsx.js"
     ]
   },
   "app/services/ServicePageClient.tsx -> @/components/ServicesScene": {
-    "id": 8256,
+    "id": "app/services/ServicePageClient.tsx -> @/components/ServicesScene",
     "files": [
-      "static/chunks/b536a0f1.77b55a9edb79e111.js",
-      "static/chunks/256.67a45e9d39340bae.js"
+      "static/chunks/_app-pages-browser_components_ServicesScene_tsx.js"
     ]
   }
 }

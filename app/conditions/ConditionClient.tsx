@@ -307,9 +307,9 @@ interface InfoCardProps {
 
 function InfoCard({ title, accentColor, children }: InfoCardProps) {
   return (
-    <div className="glass rounded-xl p-4 sm:p-5 border border-white/5 h-full">
+    <div className="glass rounded-xl p-5 border border-white/5 h-full transition-all duration-300 hover:border-white/10 group/sub">
       <h4
-        className="font-sans font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-2.5 sm:mb-3"
+        className="font-sans font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-3.5"
         style={{ color: accentColor }}
       >
         {title}
@@ -328,7 +328,7 @@ export default function ConditionsClient() {
     <>
       {/* ── Hero ── */}
       <PageHero
-        badge="We Can Help"
+        badge="Expert Care"
         title={
           <>
             <span className="text-white">Conditions </span>
@@ -344,38 +344,38 @@ export default function ConditionsClient() {
       <main id="main-content">
 
         {/* ── Overview quick-nav grid ── */}
-        <section className="py-12 md:py-20" aria-labelledby="conditions-grid-heading">
+        <section className="section-py relative" aria-labelledby="conditions-grid-heading">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-            <Anim className="text-center mb-8 md:mb-12">
+            <Anim className="text-center mb-12">
               <h2
                 id="conditions-grid-heading"
-                className="font-display text-2xl sm:text-3xl md:text-4xl font-bold"
+                className="font-display text-3xl sm:text-4xl md:text-5xl font-bold"
               >
                 <span className="text-white">All </span>
-                <span className="text-brand-green">Conditions</span>
+                <span className="text-brand-green underline decoration-brand-green/20 underline-offset-8">Conditions</span>
               </h2>
-              <p className="text-gray-400 font-sans mt-2 text-sm sm:text-base max-w-xl mx-auto">
-                Tap any condition to jump to detailed info, symptoms, causes and our treatment approach.
+              <p className="text-gray-400 font-sans mt-6 text-base sm:text-lg max-w-2xl mx-auto">
+                Select a condition below to see typical symptoms, causes and how we can help you recover.
               </p>
             </Anim>
 
             {/* Responsive quick-nav — 2 cols mobile → 3 sm → 4 md → 5 lg */}
-            <nav aria-label="Jump to condition" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 mb-12 md:mb-16">
+            <nav aria-label="Jump to condition" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5">
               {CONDITIONS.map(({ name, emoji, color }, i) => (
                 <Anim key={name} direction="up" delay={i * 0.05}>
                   <a
                     href={`#${toSlug(name)}`}
-                    className="glass rounded-xl sm:rounded-2xl p-3.5 sm:p-5 text-center border border-white/5 hover:border-brand-gold/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold transition-all duration-300 group block"
+                    className="glass rounded-2xl p-5 text-center border border-white/5 hover:border-brand-gold/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold transition-all duration-300 group block h-full flex flex-col justify-center"
                     aria-label={`Jump to ${name}`}
                   >
                     <span
-                      className="text-2xl sm:text-3xl mb-2 sm:mb-3 block group-hover:scale-110 transition-transform duration-300"
+                      className="text-3xl sm:text-4xl mb-4 block group-hover:scale-125 transition-transform duration-500"
                       aria-hidden="true"
                     >
                       {emoji}
                     </span>
-                    <p className="font-sans font-semibold text-xs sm:text-sm text-white group-hover:text-brand-gold transition-colors leading-tight">
+                    <p className="font-sans font-bold text-xs sm:text-sm text-white group-hover:text-brand-gold transition-colors leading-tight">
                       {name}
                     </p>
                   </a>
@@ -388,26 +388,25 @@ export default function ConditionsClient() {
         <div className="divider mx-4 sm:mx-6" />
 
         {/* ── Condition detail cards ── */}
-        <section className="py-12 md:py-20" aria-label="Condition details">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10 sm:space-y-14">
+        <section className="section-py relative" aria-label="Condition details">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12 sm:space-y-20">
             {CONDITIONS.map((cond, i) => {
               const { name, emoji, tagline, color, symptoms, causes, treatment, duration } = cond
               const slug    = toSlug(name)
               const altCol  = altColor(color)
               const rgb     = rgbFrom(color)
-              const altRgb  = rgbFrom(altCol)
 
               return (
                 <article
                   key={name}
                   id={slug}
-                  className="scroll-mt-28 sm:scroll-mt-36"
+                  className="scroll-mt-32 sm:scroll-mt-40"
                   aria-labelledby={`${slug}-heading`}
                 >
                   <Anim direction={i % 2 === 0 ? 'left' : 'right'}>
                     <div
-                      className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-10 border relative overflow-hidden"
-                      style={{ borderColor: `${color}22` }}
+                      className="glass rounded-3xl p-6 sm:p-10 md:p-12 border relative overflow-hidden shadow-2xl"
+                      style={{ borderColor: `${color}18` }}
                     >
                       {/* Corner glow */}
                       <div
@@ -421,43 +420,40 @@ export default function ConditionsClient() {
 
                       <div className="relative z-10">
                         {/* ── Card header ── */}
-                        <div className="flex items-start gap-3 sm:gap-5 mb-5 sm:mb-6">
-                          <span
-                            className="text-3xl sm:text-4xl md:text-5xl flex-shrink-0 leading-none"
-                            aria-hidden="true"
-                          >
+                        <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-8 mb-10">
+                          <div className="w-16 h-16 sm:w-20 sm:h-20 glass rounded-2xl flex items-center justify-center text-4xl sm:text-5xl shadow-lg border border-white/5 shrink-0" aria-hidden="true">
                             {emoji}
-                          </span>
-                          <div>
+                          </div>
+                          <div className="space-y-2">
                             <span
-                              className="section-badge inline-block mb-1"
+                              className="section-badge inline-flex"
                               style={{
                                 color,
-                                borderColor: `${color}28`,
-                                background: `rgba(${rgb},.07)`,
+                                borderColor: `${color}30`,
+                                background: `rgba(${rgb},.08)`,
                               }}
                             >
                               {tagline}
                             </span>
                             <h3
                               id={`${slug}-heading`}
-                              className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-white"
+                              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight"
                             >
                               {name}
                             </h3>
                           </div>
                         </div>
 
-                        {/* ── Info grid: 1-col mobile → 2-col sm → 4-col xl ── */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
+                        {/* ── Info grid ── */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 
                           {/* Symptoms */}
                           <InfoCard title="Common Symptoms" accentColor={color}>
-                            <ul className="space-y-1.5" role="list">
+                            <ul className="space-y-3" role="list">
                               {symptoms.map(item => (
-                                <li key={item} className="flex items-start gap-2 text-xs sm:text-sm font-sans text-gray-400">
+                                <li key={item} className="flex items-start gap-3 text-sm sm:text-base font-sans text-gray-400 leading-snug">
                                   <span
-                                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5"
+                                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 transition-transform duration-300 group-hover/sub:scale-150 shadow-glow-sm"
                                     aria-hidden="true"
                                     style={{ background: color }}
                                   />
@@ -469,11 +465,11 @@ export default function ConditionsClient() {
 
                           {/* Causes */}
                           <InfoCard title="Typical Causes" accentColor={altCol}>
-                            <ul className="space-y-1.5" role="list">
+                            <ul className="space-y-3" role="list">
                               {causes.map(item => (
-                                <li key={item} className="flex items-start gap-2 text-xs sm:text-sm font-sans text-gray-400">
+                                <li key={item} className="flex items-start gap-3 text-sm sm:text-base font-sans text-gray-400 leading-snug">
                                   <span
-                                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5"
+                                    className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 transition-transform duration-300 group-hover/sub:scale-150 shadow-glow-sm"
                                     aria-hidden="true"
                                     style={{ background: altCol }}
                                   />
@@ -483,29 +479,28 @@ export default function ConditionsClient() {
                             </ul>
                           </InfoCard>
 
-                          {/* Treatment */}
-                          <InfoCard title="Our Treatment" accentColor={color}>
-                            <p className="text-xs sm:text-sm font-sans text-gray-400 leading-relaxed">{treatment}</p>
-                          </InfoCard>
-
-                          {/* Timeline + CTA */}
-                          <div className="glass rounded-xl p-4 sm:p-5 border border-white/5 flex flex-col justify-between gap-4 sm:gap-5">
-                            <div>
-                              <h4 className="font-sans font-bold text-[10px] sm:text-xs uppercase tracking-wider mb-2.5 text-gray-500">
-                                Recovery Timeline
-                              </h4>
-                              <p className="font-display font-semibold text-sm sm:text-base text-white">{duration}</p>
-                            </div>
-                            <a
-                              href="tel:+918128370332"
-                              className="btn-brand text-xs sm:text-sm py-2.5 px-4 justify-center w-full text-center"
-                              style={{
-                                background: `linear-gradient(135deg, ${color}, ${altCol})`,
-                              }}
-                              aria-label={`Book consultation for ${name}`}
-                            >
-                              <Phone size={12} aria-hidden="true" /> Book Consult
-                            </a>
+                          {/* Approach & Timeline */}
+                          <div className="flex flex-col gap-4 sm:gap-6 lg:col-span-1 md:col-span-2 lg:col-span-1">
+                             <div className="glass rounded-xl p-6 border border-white/5 space-y-4">
+                               <h4 className="font-sans font-bold text-[10px] sm:text-xs uppercase tracking-widest text-brand-gold">Our Approach</h4>
+                               <p className="text-sm sm:text-base font-sans text-gray-300 leading-relaxed italic">{treatment}</p>
+                             </div>
+                             
+                             <div className="glass rounded-xl p-6 border border-white/5 flex flex-col justify-between items-center sm:flex-row md:flex-col lg:flex-row gap-6">
+                                <div className="text-center sm:text-left">
+                                  <p className="text-[10px] uppercase tracking-widest font-bold text-gray-500 mb-1">Expected Recovery</p>
+                                  <p className="font-display font-bold text-lg sm:text-xl text-white">{duration}</p>
+                                </div>
+                                <a
+                                  href="tel:08766304045"
+                                  className="btn-brand w-full sm:w-auto md:w-full lg:w-auto px-6 py-3 text-sm shadow-gold"
+                                  style={{
+                                    background: `linear-gradient(135deg, ${color}, ${altCol})`,
+                                  }}
+                                >
+                                  <Phone size={16} className="mr-2" /> Book Now
+                                </a>
+                             </div>
                           </div>
                         </div>
                       </div>
@@ -518,36 +513,35 @@ export default function ConditionsClient() {
         </section>
 
         {/* ── CTA ── */}
-        <section className="pb-14 md:pb-24" aria-label="Contact call to action">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <section className="section-py relative px-4 sm:px-6" aria-label="Contact call to action">
+          <div className="max-w-4xl mx-auto">
             <Anim direction="scale">
-              <div className="glass-gold rounded-2xl sm:rounded-3xl p-7 sm:p-10 md:p-14 text-center border border-brand-gold/15 relative overflow-hidden">
+              <div className="glass-gold rounded-3xl p-10 sm:p-16 text-center relative overflow-hidden border border-brand-gold/15 shadow-2xl">
                 <div
-                  className="absolute inset-0 opacity-[0.06]"
+                  className="absolute inset-0 opacity-[0.08]"
                   aria-hidden="true"
                   style={{ background: 'linear-gradient(135deg,#C9A84C,#4CAF50)' }}
                 />
                 <div className="relative z-10">
-                  <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
-                    Don't See Your Condition?
+                  <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    Don't See Your <span className="text-shimmer">Condition?</span>
                   </h2>
-                  <p className="text-gray-400 font-sans text-sm sm:text-base  mb-6 sm:mb-8 max-w-xl mx-auto">
-                    We treat many conditions. Contact us — our physiotherapists will assess and create a personalised plan.
+                  <p className="text-gray-400 font-sans text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                    We treat many conditions beyond this list. Contact us today — our physiotherapists will perform a complete assessment.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a
-                      href="tel:+918128370332"
-                      className="btn-brand shadow-gold w-full sm:w-auto"
-                      aria-label="Call SpinalKraft"
+                      href="tel:08766304045"
+                      className="btn-brand shadow-gold w-full sm:w-auto min-h-[56px] px-8 text-base"
                     >
-                      <Phone size={15} aria-hidden="true" /> +91-8766304045
+                      <Phone size={20} className="mr-2" /> Call 08766304045
                     </a>
-                    <Link href="/contact" className="btn-outline w-full sm:w-auto">
-                      Book Online <ArrowRight size={14} aria-hidden="true" />
+                    <Link href="/contact" className="btn-outline w-full sm:w-auto min-h-[56px] px-8 text-base">
+                      Book Online Form <ArrowRight size={18} className="ml-2" />
                     </Link>
                   </div>
-                  <p className="mt-4 text-xs sm:text-sm text-gray-500 font-sans">
-                    Consultation: <span className="text-brand-gold font-semibold">₹500</span>
+                  <p className="mt-8 text-xs sm:text-sm text-gray-500 font-sans uppercase tracking-[0.2em]">
+                    Consultation Fee: <span className="text-brand-gold font-bold">₹500</span> · Open 24/7
                   </p>
                 </div>
               </div>

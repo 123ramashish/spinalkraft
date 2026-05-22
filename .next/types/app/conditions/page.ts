@@ -1,4 +1,4 @@
-// File: /Users/a/Downloads/spinalkraft/app/conditions/page.tsx
+// File: /Users/admin/spinalkraft/app/conditions/page.tsx
 import * as entry from '../../../../app/conditions/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

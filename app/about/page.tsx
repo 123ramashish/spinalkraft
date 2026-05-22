@@ -8,14 +8,6 @@ import { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   title: 'About Us — Trusted Physiotherapy Clinic Greater Noida',
-  description:
-    'Learn about SpinalKraft Physiotherapy Clinic — our mission to restore movement, relieve pain, and improve lives in Greater Noida Sector 4.',
-  alternates: { canonical: 'https://spinalkraft.in/about' },
-  openGraph: {
-    title: 'About SpinalKraft Physiotherapy Clinic | Greater Noida',
-    description: '4.9★ from 180+ patients. Expert physiotherapists. Open 7 days.',
-    url: 'https://spinalkraft.in/about',
-  },
 }
 
 // ─── Client components (inlined, loaded dynamically so metadata stays valid) ──

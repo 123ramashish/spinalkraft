@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, Clock, Star, Mail } from 'lucide-react'
+import { Phone, MapPin, Clock, Star, Mail, ArrowRight } from 'lucide-react'
 import logo from './images/logo.png'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -27,7 +27,7 @@ const SERVICES = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5 bg-ink-950" role="contentinfo" aria-label="Site footer">
+    <footer className="relative border-t border-white/5 bg-ink-950 pt-16 pb-8" role="contentinfo" aria-label="Site footer">
 
       {/* Top gradient rule */}
       <div
@@ -36,151 +36,173 @@ export default function Footer() {
         style={{ background: 'linear-gradient(90deg, transparent, #C9A84C 30%, #4CAF50 70%, transparent)' }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div className="container-fluid">
 
-        {/* ── Main grid: 1-col mobile → 2-col sm → 4-col lg ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-10">
+        {/* ── Main grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
 
-          {/* Brand column — spans 2 cols on sm so it sits above the link columns */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          {/* Brand column */}
+          <div className="lg:col-span-4 space-y-6">
             <Link
               href="/"
-              className="flex items-center gap-2.5 mb-4 group "
+              className="flex items-center gap-4 group w-fit"
               aria-label="SpinalKraft Home"
             >
-              <div className="relative w-16 h-16 rounded-full border border-brand-gold/40 flex-shrink-0 overflow-hidden">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-brand-gold/30 flex-shrink-0 overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
                 <div
-                  className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/15 transition-all duration-300 z-10"
+                  className="absolute inset-0 rounded-full bg-brand-gold/0 blur-md group-hover:bg-brand-gold/10 transition-all duration-300 z-10"
                   aria-hidden="true"
                 />
                 <Image
                   src={logo}
                   alt="SpinalKraft logo"
                   fill
-                  sizes="54px"
+                  sizes="64px"
                   className="object-cover rounded-full"
                 />
               </div>
-              <div>
-                <p className="font-display font-bold text-base leading-tight">
+              <div className="flex flex-col">
+                <p className="font-display font-bold text-xl sm:text-2xl leading-none tracking-tight">
                   <span className="text-brand-green">Spinal</span><span className="text-brand-gold">Kraft</span>
                 </p>
-                <p className="text-[9px] tracking-[0.16em] uppercase text-gray-600 font-sans">Physiotherapy Clinic</p>
+                <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-gray-600 font-sans font-bold mt-1.5">
+                  Physiotherapy Clinic
+                </p>
               </div>
             </Link>
 
-            <p className="text-gray-500 font-sans text-sm leading-relaxed mb-4 max-w-[280px]">
-              Greater Noida's trusted physiotherapy clinic — restoring movement and relieving pain with compassion.
+            <p className="text-gray-400 font-sans text-sm sm:text-base leading-relaxed max-w-sm">
+              Greater Noida's premier destination for advanced physiotherapy and rehabilitation. We combine clinical expertise with compassionate care to help you move pain-free.
             </p>
-            <p className="text-brand-gold/60 font-display italic text-sm mb-4">— Your Recovery, Our Priority —</p>
 
-            {/* Star rating */}
-            <div className="flex items-center gap-1" aria-label="Rated 5.0 out of 5 from 180 reviews">
-              {[1, 2, 3, 4, 5].map(i => (
-                <Star key={i} size={13} className="fill-brand-gold text-brand-gold" aria-hidden="true" />
-              ))}
-              <span className="text-xs text-gray-400 font-sans ml-1.5">5.0 (2500+ reviews)</span>
+            {/* Social proof */}
+            <div className="pt-2 flex flex-col gap-4">
+               <div className="flex items-center gap-1" aria-label="Rated 5.0 out of 5">
+                {[1, 2, 3, 4, 5].map(i => (
+                  <Star key={i} size={14} className="fill-brand-gold text-brand-gold shadow-glow-sm" aria-hidden="true" />
+                ))}
+                <span className="text-xs text-gray-500 font-bold font-sans ml-2 uppercase tracking-widest">5.0 (2500+ Patients)</span>
+              </div>
+              <p className="text-brand-gold/60 font-display italic text-base">— Your Recovery, Our Priority —</p>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <nav aria-label="Quick links">
-            <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">Quick Links</h3>
-            <ul className="space-y-1" role="list">
-              {QUICK_LINKS.map(({ label, href }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="flex items-center gap-2 text-sm font-sans text-gray-500 hover:text-brand-gold transition-colors duration-200 group min-h-[40px]"
-                  >
-                    <span className="w-4 h-px bg-brand-gold/0 group-hover:bg-brand-gold/70 group-hover:w-5 transition-all duration-300 flex-shrink-0" aria-hidden="true" />
-                    {label}
-                  </Link>
+          {/* Navigation Columns */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-8 md:gap-12">
+            {/* Quick Links */}
+            <nav aria-label="Quick links" className="space-y-6">
+              <h3 className="font-sans font-bold text-white text-[11px] sm:text-xs uppercase tracking-[0.2em] px-1">Explore</h3>
+              <ul className="space-y-1" role="list">
+                {QUICK_LINKS.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="flex items-center gap-2 py-2 text-sm font-sans font-bold text-gray-500 hover:text-brand-gold transition-all duration-300 group"
+                    >
+                      <ArrowRight size={12} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Services */}
+            <nav aria-label="Services" className="space-y-6">
+              <h3 className="font-sans font-bold text-white text-[11px] sm:text-xs uppercase tracking-[0.2em] px-1">Services</h3>
+              <ul className="space-y-1" role="list">
+                {SERVICES.slice(0, 5).map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="flex items-center gap-2 py-2 text-sm font-sans font-bold text-gray-500 hover:text-brand-green transition-all duration-300 group"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-brand-green/20 group-hover:bg-brand-green group-hover:scale-150 transition-all duration-300 shrink-0" />
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                   <Link href="/services" className="text-xs font-bold text-brand-gold/70 hover:text-brand-gold uppercase tracking-widest mt-2 block transition-colors">View All &rarr;</Link>
                 </li>
-              ))}
-            </ul>
-          </nav>
+              </ul>
+            </nav>
+          </div>
 
-          {/* Services */}
-          <nav aria-label="Services">
-            <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">Services</h3>
-            <ul className="space-y-1" role="list">
-              {SERVICES.map(({ label, href }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    className="flex items-center gap-2 text-sm font-sans text-gray-500 hover:text-brand-green transition-colors duration-200 group min-h-[38px]"
+          {/* Contact Column */}
+          <div className="lg:col-span-4 space-y-8">
+            <div className="glass rounded-3xl p-8 border border-white/5 space-y-6 relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 blur-3xl pointer-events-none" />
+               
+               <h3 className="font-sans font-bold text-white text-[11px] sm:text-xs uppercase tracking-[0.2em]">Contact & Visit</h3>
+               
+               <address className="not-italic space-y-5">
+                  <a
+                    href="tel:08766304045"
+                    className="flex items-start gap-4 group"
                   >
-                    <span
-                      className="w-1 h-1 rounded-full bg-brand-green/30 group-hover:bg-brand-green transition-colors flex-shrink-0"
-                      aria-hidden="true"
-                    />
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                    <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 transition-colors">
+                      <Phone size={18} className="text-brand-gold" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Call for Booking</span>
+                      <span className="text-base font-sans font-bold text-gray-300 group-hover:text-white transition-colors">08766304045</span>
+                    </div>
+                  </a>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-sans font-bold text-white text-xs uppercase tracking-widest mb-4">Contact</h3>
-            <address className="not-italic space-y-3.5">
-              <a
-                href="tel:+918766304045"
-                className="flex items-start gap-3 group min-h-[40px]"
-                aria-label="Call SpinalKraft"
-              >
-                <Phone size={14} className="text-brand-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span className="text-sm font-sans text-gray-400 group-hover:text-white transition-colors">
-                +91-8766304045
-                </span>
-              </a>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center shrink-0">
+                      <MapPin size={18} className="text-brand-green" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Our Clinic</span>
+                      <span className="text-sm font-sans font-medium text-gray-400 leading-relaxed">
+                        Galaxy Blue Sapphire Plaza, Medicenter 3rd Floor, Sector 4, Greater Noida West
+                      </span>
+                    </div>
+                  </div>
 
-              <div className="flex items-start gap-3">
-                <MapPin size={14} className="text-brand-green mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span className="text-sm font-sans text-gray-400">
-                  DC-28 Medicenter 3rd Floor, Galaxy Blue Sapphire Plaza, Greater Noida West Extension, Haibatpur, Greater Noida W Rd, Extension, Sector 4, Uttar Pradesh 201016
-                </span>
-              </div>
+                  <a
+                    href="mailto:spinalkraftphysio@gmail.com"
+                    className="flex items-start gap-4 group"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
+                      <Mail size={18} className="text-gray-400 group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Email Us</span>
+                      <span className="text-sm font-sans font-bold text-gray-400 group-hover:text-white transition-colors underline decoration-white/10 underline-offset-4">spinalkraftphysio@gmail.com</span>
+                    </div>
+                  </a>
+               </address>
 
-              <div className="flex items-start gap-3">
-                <Clock size={14} className="text-brand-gold mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span className="text-sm font-sans text-gray-400">
-                  Mon–Sun · 24*7 Hrs/Day
-                </span>
-              </div>
-
-              <a
-                href="mailto:spinalkraftphysio@gmail.com"
-                className="flex items-start gap-3 group min-h-[40px]"
-                aria-label="Email SpinalKraft"
-              >
-                <Mail size={14} className="text-brand-green mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <span className="text-sm font-sans text-gray-400 group-hover:text-white transition-colors">
-                 spinalkraftphysio@gmail.com
-                </span>
-              </a>
-            </address>
-
-            <a
-              href="tel:+918766304045"
-              className="mt-5 btn-brand text-sm w-full justify-center min-h-[48px]"
-              aria-label="Book appointment at SpinalKraft — ₹500"
-            >
-              📞 Book — ₹500
-            </a>
+               <div className="pt-2">
+                 <a
+                    href="tel:08766304045"
+                    className="btn-brand w-full h-[52px] text-sm shadow-gold"
+                  >
+                    📞 Book Appointment — ₹500
+                  </a>
+               </div>
+            </div>
           </div>
         </div>
 
-        <div className="divider mb-5" aria-hidden="true" />
+        <div className="divider mb-8 opacity-10" aria-hidden="true" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-          <p className="text-xs font-sans text-gray-600">
-            © {new Date().getFullYear()} SpinalKraft Physiotherapy Clinic. All rights reserved.
-          </p>
-          <p className="text-xs font-sans text-gray-700">Greater Noida, Uttar Pradesh, India</p>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+          <div className="space-y-1">
+            <p className="text-xs font-sans font-bold text-gray-600 uppercase tracking-widest">
+              © {new Date().getFullYear()} SpinalKraft Physiotherapy Clinic
+            </p>
+            <p className="text-[10px] font-sans text-gray-700 uppercase font-bold tracking-widest">Greater Noida · Uttar Pradesh · India</p>
+          </div>
+          
+          <div className="flex gap-6">
+            <Link href="/" className="text-[10px] font-bold text-gray-600 hover:text-white uppercase tracking-widest transition-colors">Privacy Policy</Link>
+            <Link href="/" className="text-[10px] font-bold text-gray-600 hover:text-white uppercase tracking-widest transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

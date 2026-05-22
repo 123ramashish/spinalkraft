@@ -27,12 +27,12 @@ interface AnimProps extends Omit<MotionProps, 'variants'> {
 }
 
 const variantMap: Record<Direction, Variants> = {
-  up:    { hidden: { opacity: 0, y: 40       }, visible: { opacity: 1, y: 0    } },
-  down:  { hidden: { opacity: 0, y: -40      }, visible: { opacity: 1, y: 0    } },
-  left:  { hidden: { opacity: 0, x: 60       }, visible: { opacity: 1, x: 0    } },
-  right: { hidden: { opacity: 0, x: -60      }, visible: { opacity: 1, x: 0    } },
+  up: { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } },
+  down: { hidden: { opacity: 0, y: -40 }, visible: { opacity: 1, y: 0 } },
+  left: { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } },
+  right: { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } },
   scale: { hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1 } },
-  fade:  { hidden: { opacity: 0              }, visible: { opacity: 1           } },
+  fade: { hidden: { opacity: 0 }, visible: { opacity: 1 } },
 }
 
 function Anim({
@@ -281,9 +281,9 @@ export default function ServicesPageClient() {
     <>
       {/* ── Hero ── */}
       <PageHero
-        badge="What We Offer"
-        title={<><span className="text-white">Our </span><span className="text-brand-green">Services</span></>}
-        subtitle="Seven specialist physiotherapy services — personalised to your condition, delivered with expertise and care."
+        badge="Healing Services"
+        title={<><span className="text-white">Our </span><span className="text-brand-green">Expertise</span></>}
+        subtitle="Specialized physiotherapy services personalised to your specific condition and recovery goals."
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
         accentColor="green"
         scene={<ServicesScene />}
@@ -291,25 +291,24 @@ export default function ServicesPageClient() {
 
       <main id="main-content">
 
-        {/* ── Sticky quick-nav: horizontal scroll on mobile ── */}
+        {/* ── Sticky quick-nav ── */}
         <div
-          className="sticky top-[56px] sm:top-[64px] z-30 glass border-b border-white/5 py-2.5 sm:py-3"
+          className="sticky top-[56px] sm:top-[64px] z-30 glass border-b border-white/5 py-3 sm:py-4 shadow-xl"
           aria-label="Service navigation"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <nav
-              className="flex gap-2 overflow-x-auto scrollbar-hide pb-0.5"
+              className="flex gap-2.5 overflow-x-auto scrollbar-hide pb-1"
               aria-label="Jump to service"
             >
               {SERVICES.map(({ id, title, icon: Icon, color }) => (
                 <a
                   key={id}
                   href={`#${id}`}
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-full glass border border-white/5 text-[11px] sm:text-xs font-sans font-semibold whitespace-nowrap hover:border-brand-gold/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold transition-all duration-200 flex-shrink-0 min-h-[36px]"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full glass border border-white/5 text-[11px] sm:text-xs font-sans font-bold whitespace-nowrap hover:border-brand-gold/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold transition-all duration-300 flex-shrink-0 min-h-[40px] shadow-sm"
                   style={{ color }}
-                  aria-label={`Jump to ${title}`}
                 >
-                  <Icon size={12} style={{ color }} aria-hidden="true" />
+                  <Icon size={14} style={{ color }} aria-hidden="true" />
                   {title}
                 </a>
               ))}
@@ -318,10 +317,10 @@ export default function ServicesPageClient() {
         </div>
 
         {/* ── Service sections ── */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 space-y-16 md:space-y-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 section-py space-y-20 md:space-y-32">
           {SERVICES.map((svc, i) => {
             const { id, icon: Icon, title, tagline, color, desc, conditions, benefits, technique } = svc
-            const isEven  = i % 2 === 0
+            const isEven = i % 2 === 0
             const colorRgb = rgb(color)
             const altColor = alt(color)
 
@@ -329,28 +328,26 @@ export default function ServicesPageClient() {
               <section
                 key={id}
                 id={id}
-                className="scroll-mt-28 sm:scroll-mt-36"
+                className="scroll-mt-32 sm:scroll-mt-40"
                 aria-labelledby={`${id}-heading`}
               >
-                {/* 1-col mobile → 2-col lg, alternating visual side */}
+                {/* Responsive grid: stacked on mobile, 2-col on lg */}
                 <div
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start ${
-                    !isEven ? 'lg:grid-flow-dense' : ''
-                  }`}
+                  className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center ${!isEven ? 'lg:flex-row-reverse' : ''}`}
                 >
 
                   {/* ── Visual panel ── */}
                   <Anim
                     direction={isEven ? 'left' : 'right'}
-                    className={!isEven ? 'lg:col-start-2' : ''}
+                    className={`lg:col-span-6 ${!isEven ? 'lg:order-2' : ''}`}
                   >
                     <div
-                      className="glass rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border relative overflow-hidden h-full"
-                      style={{ borderColor: `${color}28` }}
+                      className="glass rounded-3xl p-8 sm:p-10 md:p-12 border relative overflow-hidden h-full shadow-2xl transition-all duration-500 hover:border-white/10"
+                      style={{ borderColor: `${color}20` }}
                     >
                       {/* Corner glow */}
                       <div
-                        className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 pointer-events-none opacity-[0.06]"
+                        className="absolute top-0 right-0 w-64 h-64 pointer-events-none opacity-[0.08]"
                         aria-hidden="true"
                         style={{
                           background: `radial-gradient(circle, ${color}, transparent)`,
@@ -361,19 +358,19 @@ export default function ServicesPageClient() {
                       <div className="relative z-10">
                         {/* Icon */}
                         <div
-                          className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl mb-5 flex items-center justify-center"
-                          style={{ background: `rgba(${colorRgb},.14)` }}
+                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl mb-8 flex items-center justify-center shadow-lg"
+                          style={{ background: `rgba(${colorRgb},.15)` }}
                         >
-                          <Icon size={28} style={{ color }} aria-hidden="true" />
+                          <Icon size={32} style={{ color }} aria-hidden="true" />
                         </div>
 
                         {/* Badge */}
                         <span
-                          className="section-badge inline-block mb-2"
+                          className="section-badge inline-flex mb-4"
                           style={{
                             color,
-                            borderColor: `${color}30`,
-                            background: `rgba(${colorRgb},.07)`,
+                            borderColor: `${color}40`,
+                            background: `rgba(${colorRgb},.1)`,
                           }}
                         >
                           {tagline}
@@ -382,26 +379,26 @@ export default function ServicesPageClient() {
                         {/* Heading */}
                         <h2
                           id={`${id}-heading`}
-                          className="font-display text-2xl sm:text-3xl font-bold text-white my-3"
+                          className="font-display text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight tracking-tight"
                         >
                           {title}
                         </h2>
 
                         {/* Description */}
-                        <p className="font-sans text-gray-400 text-sm sm:text-base leading-relaxed mb-5">
+                        <p className="font-sans text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
                           {desc}
                         </p>
 
                         {/* Technique pill */}
                         {technique && (
-                          <div className="glass rounded-xl p-3.5 sm:p-4 border border-white/5">
+                          <div className="glass rounded-2xl p-5 border border-white/5 bg-white/[0.02]">
                             <p
-                              className="text-[10px] sm:text-xs font-sans font-bold uppercase tracking-widest mb-1.5"
+                              className="text-[10px] sm:text-xs font-sans font-bold uppercase tracking-[0.2em] mb-2"
                               style={{ color }}
                             >
-                              Techniques Used
+                              Specialized Techniques
                             </p>
-                            <p className="text-xs sm:text-sm font-sans text-gray-400 leading-relaxed">
+                            <p className="text-sm sm:text-base font-sans text-gray-300 leading-relaxed italic">
                               {technique}
                             </p>
                           </div>
@@ -412,31 +409,31 @@ export default function ServicesPageClient() {
 
                   {/* ── Info panel ── */}
                   <div
-                    className={`space-y-4 sm:space-y-5 ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}
+                    className={`lg:col-span-6 space-y-6 sm:space-y-8 ${!isEven ? 'lg:order-1' : ''}`}
                   >
                     {/* Conditions */}
                     <Anim direction={isEven ? 'right' : 'left'}>
-                      <div className="glass rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-white/5">
-                        <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <div className="glass rounded-2xl p-6 sm:p-8 border border-white/5 shadow-xl">
+                        <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                           <span
-                            className="w-1.5 h-5 rounded-full flex-shrink-0"
+                            className="w-2 h-6 rounded-full flex-shrink-0 shadow-glow-sm"
                             aria-hidden="true"
                             style={{ background: color }}
                           />
-                          Conditions We Treat
+                          Commonly Treated
                         </h3>
                         <ul
-                          className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3"
+                          className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3"
                           role="list"
                         >
                           {conditions.map(c => (
-                            <li key={c} className="flex items-center gap-2 text-xs sm:text-sm font-sans text-gray-300">
+                            <li key={c} className="flex items-start gap-3 group">
                               <span
-                                className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                                className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 transition-transform duration-300 group-hover:scale-150"
                                 aria-hidden="true"
                                 style={{ background: color }}
                               />
-                              {c}
+                              <span className="text-sm sm:text-base font-sans text-gray-300 leading-snug">{c}</span>
                             </li>
                           ))}
                         </ul>
@@ -445,20 +442,20 @@ export default function ServicesPageClient() {
 
                     {/* Benefits */}
                     <Anim direction={isEven ? 'right' : 'left'} delay={0.1}>
-                      <div className="glass rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-white/5">
-                        <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-4 flex items-center gap-2">
+                      <div className="glass rounded-2xl p-6 sm:p-8 border border-white/5 shadow-xl">
+                        <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-3">
                           <span
-                            className="w-1.5 h-5 rounded-full flex-shrink-0"
+                            className="w-2 h-6 rounded-full flex-shrink-0 shadow-glow-sm"
                             aria-hidden="true"
                             style={{ background: altColor }}
                           />
-                          Key Benefits
+                          Service Benefits
                         </h3>
-                        <ul className="space-y-2.5" role="list">
+                        <ul className="space-y-4" role="list">
                           {benefits.map(b => (
-                            <li key={b} className="flex items-center gap-2.5">
-                              <CheckCircle2 size={15} style={{ color }} className="flex-shrink-0" aria-hidden="true" />
-                              <span className="font-sans text-gray-300 text-xs sm:text-sm">{b}</span>
+                            <li key={b} className="flex items-start gap-4">
+                              <CheckCircle2 size={20} style={{ color }} className="flex-shrink-0 mt-0.5" aria-hidden="true" />
+                              <span className="font-sans text-gray-300 text-sm sm:text-base leading-snug">{b}</span>
                             </li>
                           ))}
                         </ul>
@@ -468,11 +465,11 @@ export default function ServicesPageClient() {
                     {/* CTA */}
                     <Anim direction={isEven ? 'right' : 'left'} delay={0.18}>
                       <a
-                        href="tel:+918128370332"
-                        className="btn-brand w-full justify-center block text-center shadow-gold min-h-[48px] text-sm sm:text-base"
+                        href="tel:08766304045"
+                        className="btn-brand w-full justify-center shadow-gold h-[56px] text-base font-bold"
                         aria-label={`Book ${title} consultation — ₹500`}
                       >
-                        <Phone size={14} aria-hidden="true" /> Book {title} — ₹500
+                        <Phone size={18} className="mr-2" aria-hidden="true" /> Book {title} — ₹500
                       </a>
                     </Anim>
                   </div>
@@ -480,40 +477,39 @@ export default function ServicesPageClient() {
 
                 {/* Divider between cards */}
                 {i < SERVICES.length - 1 && (
-                  <div className="divider mt-16 md:mt-24" aria-hidden="true" />
+                  <div className="divider mt-20 md:mt-32 opacity-10" aria-hidden="true" />
                 )}
               </section>
             )
           })}
         </div>
 
-        {/* ── CTA banner ── */}
-        <section className="pb-14 md:pb-24" aria-label="Call to action">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        {/* ── Final CTA ── */}
+        <section className="section-py relative px-4 sm:px-6" aria-label="Call to action">
+          <div className="max-w-4xl mx-auto">
             <Anim direction="scale">
-              <div className="glass-gold rounded-2xl sm:rounded-3xl p-7 sm:p-10 text-center border border-brand-gold/15 relative overflow-hidden">
+              <div className="glass-gold rounded-3xl p-10 sm:p-16 text-center border border-brand-gold/15 relative overflow-hidden shadow-2xl">
                 <div
-                  className="absolute inset-0 opacity-[0.06]"
+                  className="absolute inset-0 opacity-[0.08]"
                   aria-hidden="true"
                   style={{ background: 'linear-gradient(135deg,#C9A84C,#4CAF50)' }}
                 />
                 <div className="relative z-10">
-                  <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
-                    Not Sure Which Service?
+                  <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+                    Personalised <span className="text-shimmer">Care Plans</span>
                   </h2>
-                  <p className="text-gray-400 font-sans text-sm sm:text-base mb-6 sm:mb-8 max-w-md mx-auto">
-                    Our physiotherapists will assess your condition and recommend the best treatment plan.
+                  <p className="text-gray-400 font-sans text-base sm:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Not sure which service is right for you? Our expert physiotherapists will assess your condition and recommend the best treatment course.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a
-                      href="tel:+918128370332"
-                      className="btn-brand shadow-gold w-full sm:w-auto"
-                      aria-label="Call SpinalKraft for consultation"
+                      href="tel:08766304045"
+                      className="btn-brand shadow-gold w-full sm:w-auto min-h-[56px] px-10 text-base"
                     >
-                      <Phone size={15} aria-hidden="true" /> Call for Consultation
+                      <Phone size={20} className="mr-2" aria-hidden="true" /> Call Consultation
                     </a>
-                    <Link href="/contact" className="btn-outline w-full sm:w-auto">
-                      Book Online <ArrowRight size={14} aria-hidden="true" />
+                    <Link href="/contact" className="btn-outline w-full sm:w-auto min-h-[56px] px-10 text-base">
+                      Book Online Now <ArrowRight size={18} className="ml-2" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
@@ -521,41 +517,6 @@ export default function ServicesPageClient() {
             </Anim>
           </div>
         </section>
-
-        {/* ── JSON-LD: Service list for rich results ── */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'MedicalBusiness',
-              name: 'SpinalKraft Physiotherapy Clinic',
-              url: 'https://spinalkraft.in',
-              telephone: '+918128370332',
-              priceRange: '₹500',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'Sector 4',
-                addressLocality: 'Greater Noida',
-                addressRegion: 'Uttar Pradesh',
-                addressCountry: 'IN',
-              },
-              hasOfferCatalog: {
-                '@type': 'OfferCatalog',
-                name: 'Physiotherapy Services',
-                itemListElement: SERVICES.map((s, i) => ({
-                  '@type': 'Offer',
-                  position: i + 1,
-                  name: s.title,
-                  description: s.desc,
-                  url: `https://spinalkraft.in/services#${s.id}`,
-                  price: '500',
-                  priceCurrency: 'INR',
-                })),
-              },
-            }),
-          }}
-        />
       </main>
     </>
   )
