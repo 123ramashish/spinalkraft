@@ -1,0 +1,37 @@
+{
+  "app/HomeClient.tsx -> @/components/HeroScene": {
+    "id": 2245,
+    "files": [
+      "static/chunks/b536a0f1.8ef5d36f526d992b.js",
+      "static/chunks/245.1f2946f4c686e135.js"
+    ]
+  },
+  "app/about/AboutClient.tsx -> @/components/SpineScene": {
+    "id": 6436,
+    "files": [
+      "static/chunks/b536a0f1.8ef5d36f526d992b.js",
+      "static/chunks/436.6c2c6ba59adfbf76.js"
+    ]
+  },
+  "app/conditions/ConditionClient.tsx -> @/components/ConditionsScene": {
+    "id": 1581,
+    "files": [
+      "static/chunks/b536a0f1.8ef5d36f526d992b.js",
+      "static/chunks/581.498b48bfedf9a341.js"
+    ]
+  },
+  "app/contact/ContactPageClient.tsx -> @/components/ContactScene": {
+    "id": 7323,
+    "files": [
+      "static/chunks/b536a0f1.8ef5d36f526d992b.js",
+      "static/chunks/323.e44198fe2ab33571.js"
+    ]
+  },
+  "app/services/ServicePageClient.tsx -> @/components/ServicesScene": {
+    "id": 8256,
+    "files": [
+      "static/chunks/b536a0f1.8ef5d36f526d992b.js",
+      "static/chunks/256.67a45e9d39340bae.js"
+    ]
+  }
+}
