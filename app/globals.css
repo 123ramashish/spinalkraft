@@ -15,9 +15,14 @@
   --ink-800:    #091422;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
 
 /* Improved fluid typography and container sizing */
+html, body {
+  min-width: 0;
+  min-height: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -42,8 +47,8 @@ html {
     color: #e8edf2;
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
-    /* Prevent layout shift from scrollbar on desktop */
-    width: 100vw;
+    min-width: 0;
+    min-height: 100%;
   }
 }
 
@@ -56,12 +61,26 @@ html {
     margin-right: auto;
     padding-left: clamp(1rem, 5vw, 2.5rem);
     padding-right: clamp(1rem, 5vw, 2.5rem);
+    min-width: 0;
+  }
+  .section-py {
+    padding-top: clamp(2rem, 8vw, 6rem);
+    padding-bottom: clamp(2rem, 8vw, 6rem);
+  }
+  img,
+  picture,
+  svg,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+    height: auto;
   }
 
   /* Responsive section spacing */
   .section-py {
-    padding-top: clamp(3rem, 10vw, 8rem);
-    padding-bottom: clamp(3rem, 10vw, 8rem);
+    padding-top: clamp(2rem, 8vw, 6rem);
+    padding-bottom: clamp(2rem, 8vw, 6rem);
   }
 
   /* Fluid typography examples if needed elsewhere */

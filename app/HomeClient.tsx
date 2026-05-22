@@ -70,7 +70,7 @@ const HeroScene = dynamic(() => import('@/components/HeroScene'), { ssr: false }
 // ─────────────────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { icon: Star,   value: '5.0★',    label: '200+ Reviews' ,url:"" },
+  { icon: Star,   value: '5.0★',    label: '500+ Reviews' ,url:"" },
   { icon: Clock,  value: '24h/day', label: 'Open Daily' ,url:""   },
   { icon: MapPin, value: 'Greater Noida West', label: 'Sector 4', url:'https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D' },
   { icon: Phone,  value: '₹500',    label: 'Consultation' ,url:"" },
@@ -144,7 +144,7 @@ export default function HomeClient() {
                   className="w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0"
                   aria-hidden="true"
                 />
-                Greater Noida's Premier Physiotherapy
+                Greater Noida's , Noida & Delhi Premier Physiotherapy
               </motion.div>
 
               <motion.h1
@@ -153,21 +153,20 @@ export default function HomeClient() {
                 transition={{ duration: 0.75, delay: 0.1 }}
                 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
               >
-                <span className="text-white">Restore</span>{' '}
-                <span className="text-shimmer">Movement.</span>
+                <span className="text-white">Your</span>{' '}
+                <span className="text-shimmer">Recovery</span>
                 <br className="hidden sm:block" />
-                <span className="text-white">Relieve</span>{' '}
-                <span className="text-brand-green">Pain.</span>
+                <span className="text-white">Our</span>{' '}
+                <span className="text-brand-green">Priority</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.22 }}
-                className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
+                className="text-gray-400 font-serif text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
               >
-                Expert physiotherapy for spinal disorders, sports injuries, neurological
-                conditions and chronic pain — personalised to you.
+                Expert Physiotherapy for Orthopedics Condition , Spinal Condition , Neurological Condition , Sports Injuries , Cardiopulmonary Condition , Geriatric & Pediatric Care , Women's Health Physiotherapy , Workplace & Ergonomic Physiotherapy , Oncology Physiotherapy — Personalised for you.
               </motion.p>
 
               {/* CTA buttons */}
@@ -208,7 +207,7 @@ export default function HomeClient() {
                   ))}
                 </div>
                 <p className="text-xs sm:text-sm font-sans text-gray-400">
-                  <span className="text-brand-gold font-semibold">2500+</span> patients recovered
+                  <span className="text-brand-gold font-semibold">10000+</span> patients recovered
                 </p>
               </motion.div>
             </div>
@@ -440,7 +439,7 @@ export default function HomeClient() {
                     className="absolute -bottom-6 -left-4 sm:-left-8 stat-card px-5 py-4 shadow-xl"
                     aria-hidden="true"
                   >
-                    <p className="font-display font-bold text-2xl sm:text-3xl text-brand-green">2500+</p>
+                    <p className="font-display font-bold text-2xl sm:text-3xl text-brand-green">10000+</p>
                     <p className="text-[10px] sm:text-xs text-gray-400 font-sans uppercase font-bold tracking-widest mt-1">Patients</p>
                   </motion.div>
                 </div>

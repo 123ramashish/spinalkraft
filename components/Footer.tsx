@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, Clock, Star, Mail, ArrowRight } from 'lucide-react'
+import { Phone, MapPin, Clock, Star, Mail, ArrowRight, MessageCircle } from 'lucide-react'
 import logo from './images/logo.png'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -77,11 +77,11 @@ export default function Footer() {
 
             {/* Social proof */}
             <div className="pt-2 flex flex-col gap-4">
-               <div className="flex items-center gap-1" aria-label="Rated 5.0 out of 5">
+              <div className="flex items-center gap-1" aria-label="Rated 5.0 out of 5">
                 {[1, 2, 3, 4, 5].map(i => (
                   <Star key={i} size={14} className="fill-brand-gold text-brand-gold shadow-glow-sm" aria-hidden="true" />
                 ))}
-                <span className="text-xs text-gray-500 font-bold font-sans ml-2 uppercase tracking-widest">5.0 (2500+ Patients)</span>
+                <span className="text-xs text-gray-500 font-bold font-sans ml-2 uppercase tracking-widest">5.0 (10000+ Patients)</span>
               </div>
               <p className="text-brand-gold/60 font-display italic text-base">— Your Recovery, Our Priority —</p>
             </div>
@@ -123,7 +123,7 @@ export default function Footer() {
                   </li>
                 ))}
                 <li>
-                   <Link href="/services" className="text-xs font-bold text-brand-gold/70 hover:text-brand-gold uppercase tracking-widest mt-2 block transition-colors">View All &rarr;</Link>
+                  <Link href="/services" className="text-xs font-bold text-brand-gold/70 hover:text-brand-gold uppercase tracking-widest mt-2 block transition-colors">View All &rarr;</Link>
                 </li>
               </ul>
             </nav>
@@ -132,58 +132,77 @@ export default function Footer() {
           {/* Contact Column */}
           <div className="lg:col-span-4 space-y-8">
             <div className="glass rounded-3xl p-8 border border-white/5 space-y-6 relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 blur-3xl pointer-events-none" />
-               
-               <h3 className="font-sans font-bold text-white text-[11px] sm:text-xs uppercase tracking-[0.2em]">Contact & Visit</h3>
-               
-               <address className="not-italic space-y-5">
-                  <a
-                    href="tel:08766304045"
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 transition-colors">
-                      <Phone size={18} className="text-brand-gold" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Call for Booking</span>
-                      <span className="text-base font-sans font-bold text-gray-300 group-hover:text-white transition-colors">08766304045</span>
-                    </div>
-                  </a>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 blur-3xl pointer-events-none" />
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center shrink-0">
-                      <MapPin size={18} className="text-brand-green" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Our Clinic</span>
-                      <span className="text-sm font-sans font-medium text-gray-400 leading-relaxed">
-                        Galaxy Blue Sapphire Plaza, Medicenter 3rd Floor, Sector 4, Greater Noida West
-                      </span>
-                    </div>
+              <h3 className="font-sans font-bold text-white text-[11px] sm:text-xs uppercase tracking-[0.2em]">Contact & Visit</h3>
+
+              <address className="not-italic space-y-5">
+                <a
+                  href="tel:08766304045"
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center shrink-0 group-hover:bg-brand-gold/20 transition-colors">
+                    <Phone size={18} className="text-brand-gold" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Call for Booking</span>
+                    <span className="text-base font-sans font-bold text-gray-300 group-hover:text-white transition-colors">08766304045</span>
+                  </div>
+                </a>
+                <a
+                  href="https://wa.me/918766304045"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition-colors">
+                    <MessageCircle size={18} className="text-green-500" />
                   </div>
 
-                  <a
-                    href="mailto:spinalkraftphysio@gmail.com"
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
-                      <Mail size={18} className="text-gray-400 group-hover:text-white transition-colors" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Email Us</span>
-                      <span className="text-sm font-sans font-bold text-gray-400 group-hover:text-white transition-colors underline decoration-white/10 underline-offset-4">spinalkraftphysio@gmail.com</span>
-                    </div>
-                  </a>
-               </address>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">
+                      Chat on WhatsApp
+                    </span>
 
-               <div className="pt-2">
-                 <a
-                    href="tel:08766304045"
-                    className="btn-brand w-full h-[52px] text-sm shadow-gold"
-                  >
-                    📞 Book Appointment — ₹500
-                  </a>
-               </div>
+                    <span className="text-base font-sans font-bold text-gray-300 group-hover:text-white transition-colors">
+                      +91 87663 04045
+                    </span>
+                  </div>
+                </a>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center shrink-0">
+                    <MapPin size={18} className="text-brand-green" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Our Clinic</span>
+                    <span className="text-sm font-sans font-medium text-gray-400 leading-relaxed">
+                      Galaxy Blue Sapphire Plaza, Medicenter 3rd Floor, Sector 4, Greater Noida West
+                    </span>
+                  </div>
+                </div>
+
+                <a
+                  href="mailto:spinalkraftphysio@gmail.com"
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
+                    <Mail size={18} className="text-gray-400 group-hover:text-white transition-colors" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Email Us</span>
+                    <span className="text-sm font-sans font-bold text-gray-400 group-hover:text-white transition-colors underline decoration-white/10 underline-offset-4">spinalkraftphysio@gmail.com</span>
+                  </div>
+                </a>
+              </address>
+
+              <div className="pt-2">
+                <a
+                  href="tel:08766304045"
+                  className="btn-brand w-full h-[52px] text-sm shadow-gold"
+                >
+                  📞 Book Appointment — ₹500
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -198,7 +217,7 @@ export default function Footer() {
             </p>
             <p className="text-[10px] font-sans text-gray-700 uppercase font-bold tracking-widest">Greater Noida · Uttar Pradesh · India</p>
           </div>
-          
+
           <div className="flex gap-6">
             <Link href="/" className="text-[10px] font-bold text-gray-600 hover:text-white uppercase tracking-widest transition-colors">Privacy Policy</Link>
             <Link href="/" className="text-[10px] font-bold text-gray-600 hover:text-white uppercase tracking-widest transition-colors">Terms of Service</Link>

@@ -209,71 +209,71 @@ const CONDITIONS: Condition[] = [
     name: 'Back Pain', emoji: '🦴', tagline: 'Acute & chronic back conditions', color: '#C9A84C',
     symptoms: ['Dull or sharp lower back ache', 'Pain worse with sitting', 'Morning stiffness', 'Radiating to buttocks'],
     causes: ['Poor posture', 'Disc degeneration', 'Muscle strain', 'Sedentary lifestyle'],
-    treatment: 'Manual therapy, spinal mobilization, core stabilization, posture correction',
-    duration: '4–8 weeks',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with spinal mobilization, core stabilization, posture correction',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Neck Pain', emoji: '🔄', tagline: 'Cervical spine & postural disorders', color: '#4CAF50',
     symptoms: ['Stiffness & limited rotation', 'Headaches from neck', 'Arm referred pain', 'Pins & needles in hands'],
     causes: ['Prolonged screen use', 'Poor ergonomics', 'Disc degeneration', 'Whiplash'],
-    treatment: 'Cervical mobilization, traction, deep neck flexor training',
-    duration: '3–6 weeks',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Cervical mobilization, traction, deep neck flexor training',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Sciatica', emoji: '⚡', tagline: 'Sciatic nerve pain down the leg', color: '#C9A84C',
     symptoms: ['Sharp burning leg pain', 'Numbness in leg/foot', 'Pain worse sitting', 'Leg weakness'],
     causes: ['Herniated disc', 'Piriformis syndrome', 'Spinal stenosis', 'Spondylolisthesis'],
-    treatment: 'Neural mobilization, McKenzie exercises, traction, core stability',
-    duration: '6–12 weeks',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Neural mobilization, McKenzie exercises, traction, core stability',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Frozen Shoulder', emoji: '🤲', tagline: 'Adhesive capsulitis & stiffness', color: '#4CAF50',
     symptoms: ['Progressive stiffness', 'Night pain', 'Inability to raise arm', 'Difficulty with tasks'],
     causes: ['Shoulder immobilization', 'Diabetes', 'Post-injury', 'Idiopathic'],
-    treatment: 'Glenohumeral mobilization, stretching, pendulum exercises, electrotherapy',
-    duration: '3–6 months',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Glenohumeral mobilization, stretching,strengthening , pendulum exercises',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Knee Pain', emoji: '🦵', tagline: 'Joint pain & knee dysfunction', color: '#C9A84C',
     symptoms: ['Pain during weight-bearing', 'Swelling around knee', 'Clicking or locking', 'Stair weakness'],
     causes: ['Osteoarthritis', 'Ligament injuries', 'Patellofemoral syndrome', 'Meniscus tears'],
-    treatment: 'Quadriceps strengthening, joint mobilization, McConnell taping',
-    duration: '4–10 weeks',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Quadriceps strengthening, joint mobilization, McConnell taping',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Slip Disc', emoji: '💫', tagline: 'Herniated disc & nerve compression', color: '#4CAF50',
     symptoms: ['Radiating arm/leg pain', 'Muscle weakness', 'Altered sensation', 'Pain with coughing'],
     causes: ['Disc degeneration', 'Heavy lifting', 'Repetitive bending', 'Age-related changes'],
-    treatment: 'McKenzie technique, neural mobilization, lumbar stabilization, traction',
-    duration: '6–12 weeks',
+    treatment: ' Advance Electrotherapy combined with Manual therapy, along with McKenzie technique, neural mobilization, lumbar stabilization, traction',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Sports Injuries', emoji: '⚽', tagline: 'Athletic trauma & overuse injuries', color: '#C9A84C',
     symptoms: ['Acute pain after injury', 'Swelling & bruising', 'Reduced range of motion', 'Instability'],
     causes: ['Direct trauma', 'Overuse & overtraining', 'Inadequate warm-up', 'Biomechanical imbalances'],
-    treatment: 'RICE protocol, sports taping, rehab exercises, return-to-sport programme',
-    duration: '2–16 weeks',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with RICE protocol, cupping , IASTM , sports taping, rehab exercises, return-to-sport programme',
+    duration: '1 – 6 Weeks',
   },
   {
     name: 'Paralysis Rehab', emoji: '🧠', tagline: 'Stroke & neurological recovery', color: '#4CAF50',
     symptoms: ['Muscle weakness/paralysis', 'Loss of coordination', 'Spasticity', 'Gait difficulty'],
     causes: ['Stroke', 'Spinal cord injury', 'Brain injury', 'Neurological disease'],
-    treatment: 'Bobath technique, PNF, functional electrical stimulation, gait retraining',
-    duration: 'Ongoing — gains in 3–6 months',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Bobath technique, PNF, functional electrical stimulation, gait retraining',
+    duration: 'Ongoing — gains in 1 – 6 Weeks',
   },
   {
     name: 'Arthritis', emoji: '🔩', tagline: 'Joint inflammation & degeneration', color: '#C9A84C',
     symptoms: ['Joint pain & tenderness', 'Morning stiffness', 'Reduced mobility', 'Warmth & swelling'],
     causes: ['Age-related wear', 'Autoimmune (RA)', 'Previous injuries', 'Obesity'],
-    treatment: 'Hydrotherapy, gentle mobilization, strengthening, activity modification',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Hydrotherapy, gentle mobilization, strengthening, activity modification',
     duration: 'Long-term management',
   },
   {
     name: 'Muscle Strain', emoji: '💪', tagline: 'Soft tissue injuries & sprains', color: '#4CAF50',
     symptoms: ['Muscle soreness', 'Swelling & bruising', 'Limited function', 'Weakness'],
     causes: ['Overstretching', 'Heavy lifting', 'Sudden movement', 'Chronic overuse'],
-    treatment: 'Soft tissue massage, ultrasound therapy, progressive strengthening',
-    duration: '1–6 weeks',
+    treatment: 'Advance Electrotherapy combined with Manual therapy, along with Soft tissue massage, ultrasound therapy, progressive strengthening',
+    duration: '1 – 6 weeks',
   },
 ]
 
@@ -335,7 +335,9 @@ export default function ConditionsClient() {
             <span className="text-shimmer">We Treat</span>
           </>
         }
-        subtitle="Our expert physiotherapists diagnose and treat a wide range of musculoskeletal, neurological and sports-related conditions."
+        subtitle="Expert Physiotherapy for Orthopedics Condition , Spinal Condition , Neurological Condition , Sports Injuries , Cardiopulmonary Condition , Geriatric & Pediatric Care , Women's Health Physiotherapy , Workplace & Ergonomic Physiotherapy , Oncology Physiotherapy — Personalised for you.
+
+"
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Conditions' }]}
         accentColor="gold"
         scene={<ConditionsScene />}

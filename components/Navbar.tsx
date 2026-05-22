@@ -120,7 +120,7 @@ export default function Navbar() {
               <p className="font-display font-bold text-lg sm:text-xl md:text-2xl leading-none tracking-tight">
                 <span className="text-brand-green">Spinal</span><span className="text-brand-gold">Kraft</span>
               </p>
-              <p className="hidden xs:block text-[8px] sm:text-[10px] tracking-[0.2em] uppercase text-gray-500 font-sans font-bold mt-1">
+              <p className="hidden sm:block text-[8px] sm:text-[10px] tracking-[0.2em] uppercase text-gray-500 font-sans font-bold mt-1">
                 Physiotherapy Clinic
               </p>
             </div>
@@ -152,17 +152,25 @@ export default function Navbar() {
           </nav>
 
           {/* ── CTAs + mobile toggle ── */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <a
               href="tel:08766304045"
-              className="hidden sm:flex btn-brand h-11 px-5 text-sm shadow-gold"
+              className="inline-flex sm:hidden items-center justify-center h-11 w-11 rounded-2xl border border-white/10 bg-white/5 text-brand-gold transition-all duration-300 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-gold"
+              aria-label="Call SpinalKraft"
             >
-              <Phone size={14} className="mr-2" /> 08766304045
+              <Phone size={18} aria-hidden="true" />
             </a>
-            
+            {/* <a
+              href="tel:08766304045"
+              className="hidden sm:inline-flex btn-brand h-11 px-5 text-sm shadow-gold"
+              aria-label="Call SpinalKraft to book appointment"
+            >
+              <Phone size={14} className="mr-2" aria-hidden="true" /> 08766304045
+            </a> */}
+
             <button
               onClick={() => setMobileOpen(v => !v)}
-              className="lg:hidden p-3 rounded-2xl text-gray-300 hover:text-brand-gold hover:bg-white/5 transition-all duration-300 active:scale-95"
+              className="lg:hidden p-3 rounded-2xl text-gray-300 hover:text-brand-gold hover:bg-white/5 transition-all duration-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-gold"
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"

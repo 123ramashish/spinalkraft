@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState, ChangeEvent, FormEvent, ReactNode } from 'react'
 import { motion, AnimatePresence, Variants, MotionProps } from 'framer-motion'
-import { ChevronRight, MapPin, Phone, Clock, Star, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { ChevronRight, MapPin, Phone, Clock, Star, Send, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. Anim  (was @/components/Anim)
@@ -218,6 +218,10 @@ const INFO_CARDS = [
     color: '#C9A84C', link: 'tel:08766304045',
   },
   {
+    icon: MessageCircle, title: 'Chat With Us', primary: 'WhatsApp', secondary: '24*7 Availability',
+    color: '#4CAF50', link: 'https://wa.me/918766304045',
+  },
+  {
     icon: MapPin, title: 'Visit Us', primary: 'Galaxy Blue Sapphire Plaza', secondary: 'Medicenter 3rd Floor, Sector 4, Greater Noida West',
     color: '#4CAF50', link: 'https://www.google.com/maps/place/SpinalKraft+Physiotherapy+Clinic/@28.6070951,77.4324067,815m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cefb08541b083:0x3ae67d116f9e3324!8m2!3d28.6070951!4d77.4349816!16s%2Fg%2F11mcc2kvkk?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D',
   },
@@ -226,7 +230,7 @@ const INFO_CARDS = [
     color: '#C9A84C',
   },
   {
-    icon: Star, title: 'Rating', primary: '5.0★ Rating', secondary: '2500+ recovered patients',
+    icon: Star, title: 'Rating', primary: '5.0★ Rating', secondary: '10000+ recovered patients',
     color: '#4CAF50',
   },
 ] as const
@@ -314,7 +318,7 @@ export default function ContactPageClient() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* ── Info cards ── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 mb-16 sm:mb-20">
             {INFO_CARDS.map(({ icon: Icon, title, primary, secondary, color, link }: any, i) => {
               const rgb = color === '#C9A84C' ? '201,168,76' : '76,175,80'
               return (
@@ -324,7 +328,7 @@ export default function ContactPageClient() {
                       className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl mb-5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 flex-shrink-0 shadow-lg"
                       style={{ background: `rgba(${rgb},.12)` }}
                     >
-                      <Icon size={24} style={{ color }} aria-hidden="true" />
+                      <Icon size={24} style={{ color }} aria-hidden="true" className="animate-pulse" />
                     </div>
                     <p className="font-sans font-bold text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 mb-3">
                       {title}
@@ -334,7 +338,7 @@ export default function ContactPageClient() {
                         href={link}
                         target={link.startsWith('http') ? '_blank' : undefined}
                         rel="noopener noreferrer"
-                        className="font-display font-bold text-lg sm:text-xl text-white hover:text-brand-gold transition-colors mb-2 leading-tight"
+                        className=" font-serif font-bold text-lg sm:text-xl text-white hover:text-brand-gold transition-colors mb-2 leading-tight"
                       >
                         {primary}
                       </a>
@@ -522,9 +526,9 @@ export default function ContactPageClient() {
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-6 underline underline-offset-8 decoration-brand-green/20">How to Reach Us</h3>
                   <div className="space-y-6">
                     {[
-                      { label: 'Primary Landmark', desc: 'Galaxy Blue Sapphire Plaza, near Char Murti Chowk' },
+                      { label: 'Primary Landmark', desc: "Galaxy Blue Sapphire Plaza ( Doctor's Chamber-28  Medicenter 3rd Floor), near Gaur city , Char Murti Chowk" },
                       { label: 'Public Transport', desc: 'Well connected via Gaur City and Greater Noida Link Road' },
-                      { label: 'Parking', desc: 'Dedicated basement and open parking available at the plaza' },
+                      { label: 'Parking', desc: 'Dedicated free basement and open parking available at the plaza' },
                     ].map(({ label, desc }) => (
                       <div key={label} className="group">
                         <p className="font-sans font-bold text-[10px] text-brand-green uppercase tracking-widest mb-1 transition-colors group-hover:text-brand-gold">{label}</p>

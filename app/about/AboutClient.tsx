@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { motion, Variants, MotionProps } from 'framer-motion'
 import { ChevronRight, Target, Eye, Users, Award, Heart, Zap, Phone, ArrowRight } from 'lucide-react'
 import { ReactNode } from 'react'
+import Image from 'next/image'
+import logo from '../../components/images/logo.png'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. Anim  (was @/components/Anim)
@@ -178,23 +180,23 @@ const SpineScene = dynamic(() => import('@/components/SpineScene'), { ssr: false
 
 const VALUES = [
   { icon: Users, title: 'Patient-Centered', desc: 'Every treatment plan is tailored to your individual needs, goals and lifestyle.',          color: '#C9A84C' },
-  { icon: Award, title: 'Professional',     desc: 'BPT/MPT qualified therapists with years of specialized clinical experience.',              color: '#4CAF50' },
+  { icon: Award, title: 'Professional',     desc: "PhD/MPT/BPT qualified Doctor's with years of specialized clinical experience.",              color: '#4CAF50' },
   { icon: Heart, title: 'Compassionate',    desc: 'We treat every patient with empathy and genuine care — healing requires both.',            color: '#C9A84C' },
   { icon: Zap,   title: 'Advanced Methods', desc: 'Evidence-based modern physiotherapy for faster, more durable recovery outcomes.',          color: '#4CAF50' },
 ]
 
 const MILESTONES = [
-  { value: '2500+',   label: 'Patients Treated',   color: '#C9A84C' },
+  { value: '10000+',   label: 'Patients Treated',   color: '#C9A84C' },
   { value: '5.0★',   label: 'Avg. Rating',         color: '#4CAF50' },
-  { value: '10+',    label: 'Conditions Managed',  color: '#C9A84C' },
+  { value: '100+',    label: 'Conditions Managed',  color: '#C9A84C' },
   { value: '24*7', label: 'Weekly Availability', color: '#4CAF50' },
   { value: '₹500',   label: 'Consultation Fee',    color: '#C9A84C' },
   { value: '24h',   label: 'Daily Open Hours',    color: '#4CAF50' },
 ]
 
 const TRAITS = [
-  'Certified Physiotherapists (BPT / MPT)',
-  'Specialized in Spinal & Orthopedic Conditions',
+  "Certified Physiotherapists Doctor's (PhD / MPT / BPT)",
+  'Specialized in Orthopedic & Spinal Conditions',
   'Trained in Neurological Rehabilitation',
   'Sports Injury Management Experts',
   'Ongoing CPD & Advanced Training',
@@ -205,7 +207,7 @@ const BARS = [
   { label: 'Pain Reduction',       pct: 95 },
   { label: 'Mobility Improvement', pct: 92 },
   { label: 'Patient Satisfaction', pct: 98 },
-  { label: 'Return to Activity',   pct: 88 },
+  { label: 'Return to Activity',   pct: 95 },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -218,7 +220,7 @@ export default function AboutClient() {
       <PageHero
         badge="About SpinalKraft"
         title={<><span className="text-white">Who </span><span className="text-shimmer">We Are</span></>}
-        subtitle="A trusted physiotherapy centre dedicated to helping patients recover from pain, injury and mobility issues — with evidence-based care and genuine compassion."
+        subtitle="Spinalkraft Physiotherapy Clinic — A centre dedicated to restoring movement, relieving pain, and improving quality of life through advanced and personalised physiotherapy care. With a patient-first approach and evidence-based treatment methods, we strive to help every individual regain strength, confidence, and independence in their daily life."
         breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         accentColor="gold"
         scene={
@@ -239,6 +241,8 @@ export default function AboutClient() {
                 <div className="relative max-w-xs sm:max-w-sm mx-auto lg:max-w-none">
                   <div className="glass-gold rounded-3xl p-10 sm:p-12 text-center relative overflow-hidden border border-brand-gold/10">
                     <div className="absolute inset-0 opacity-[0.05]" style={{ background: 'linear-gradient(135deg,#C9A84C,#4CAF50)' }} />
+
+               
                     <div className="relative w-24 sm:w-32 mx-auto mb-8">
                       {Array.from({ length: 14 }).map((_, i) => (
                         <div
@@ -263,7 +267,7 @@ export default function AboutClient() {
                     <p className="text-[9px] sm:text-[10px] text-gray-500 font-sans uppercase font-bold tracking-widest mt-1">Rating</p>
                   </div>
                   <div className="absolute -bottom-4 -left-2 sm:-left-6 stat-card shadow-xl">
-                    <p className="font-display font-bold text-xl sm:text-2xl text-brand-green leading-none">2500+</p>
+                    <p className="font-display font-bold text-xl sm:text-2xl text-brand-green leading-none">10000+</p>
                     <p className="text-[9px] sm:text-[10px] font-sans text-gray-500 uppercase font-bold tracking-widest mt-1">Treated</p>
                   </div>
                 </div>
@@ -277,7 +281,7 @@ export default function AboutClient() {
                     Dedicated to Your <span className="text-brand-green underline decoration-brand-green/20 underline-offset-8">Wellbeing</span>
                   </h2>
                   <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mt-6">
-                    SpinalKraft was founded to make expert, evidence-based physiotherapy accessible in Greater Noida. We treat root causes — not just symptoms.
+                    SpinalKraft was founded to make expert, evidence-based physiotherapy accessible in Greater Noida , Noida & Delhi. We treat root causes — not just symptoms.
                   </p>
                 </Anim>
 
@@ -285,11 +289,11 @@ export default function AboutClient() {
                   {[
                     {
                       icon: Target, title: 'Our Mission', color: '#C9A84C',
-                      desc: 'To deliver high-quality physiotherapy care that helps patients recover faster, move better and live pain-free lives through personalized treatment.',
+                      desc: 'Spinalkraft Physiotherapy Clinic was founded with a passion for healing and restoring better movement in people’s lives. We combine expert physiotherapy care with a personalised approach to help every patient recover with confidence, our focus is always on long-term wellness and quality care. At Spinalkraft, every recovery journey is guided with compassion, professionalism, and dedication.',
                     },
                     {
                       icon: Eye, title: 'Our Vision', color: '#4CAF50',
-                      desc: 'To become the most trusted physiotherapy clinic in Greater Noida, recognized for clinical excellence and compassionate care.',
+                      desc: 'To become the most trusted physiotherapy clinic in Greater Noida, Noida & Delhi, recognized for clinical excellence and compassionate care.',
                     },
                   ].map(({ icon: Icon, title, color, desc }, i) => (
                     <Anim key={title} direction="right" delay={0.1 + i * 0.12}>
@@ -381,10 +385,10 @@ export default function AboutClient() {
                 <Anim direction="left">
                   <div className="section-badge w-fit mb-4">Our Expertise</div>
                   <h2 id="team-heading" className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-                    Skilled, <span className="text-brand-gold underline decoration-brand-gold/20 underline-offset-8">Certified</span> Therapists
+                    Skilled, <span className="text-brand-gold underline decoration-brand-gold/20 underline-offset-8">Certified</span> Doctor's
                   </h2>
                   <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mt-6">
-                    Our team holds BPT/MPT degrees with years of specialized clinical experience across spinal, neurological, sports and orthopedic physiotherapy.
+                    Our team holds PhD/MPT/BPT degrees with years of specialized clinical experience across Orthopedic , Spinal , Neurological , Sports Injury , Geriatric & Pediatric physiotherapy along with Advance Oncology rehabilitation.
                   </p>
                 </Anim>
                 
@@ -436,7 +440,7 @@ export default function AboutClient() {
                   </div>
                   <div className="mt-12 pt-8 border-t border-white/10 text-center">
                     <p className="font-display text-5xl sm:text-6xl font-black text-shimmer leading-none">5.0★</p>
-                    <p className="font-sans text-xs sm:text-sm text-gray-500 mt-3 uppercase font-bold tracking-[0.2em]">Based on 2500+ patient reviews</p>
+                    <p className="font-sans text-xs sm:text-sm text-gray-500 mt-3 uppercase font-bold tracking-[0.2em]">Based on 10000+ patient reviews</p>
                   </div>
                 </div>
               </Anim>
